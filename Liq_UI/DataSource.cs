@@ -8,5 +8,7 @@ namespace Liq_UI
 {
     class DataSource
     {
+        //Source Tables List
+        List<SourceTable> TableList = new List<SourceTable>();
     }
 }
