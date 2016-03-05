@@ -58,9 +58,11 @@
     <Compile Include="SourceRelateCell.cs" />
     <Compile Include="SourceRelateFilter.cs" />
     <Compile Include="SourceRelateMode.cs" />
+    <Compile Include="SourceRelateParameter.cs" />
     <Compile Include="SourceTable.cs" />
     <Compile Include="SourceTableField.cs" />
     <Compile Include="SourceTableLine.cs" />
+    <Compile Include="TargetField.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
