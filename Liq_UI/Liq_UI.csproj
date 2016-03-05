@@ -55,7 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RelateCell.cs" />
+    <Compile Include="SourceRelateCell.cs" />
+    <Compile Include="SourceRelateFilter.cs" />
+    <Compile Include="SourceRelateMode.cs" />
     <Compile Include="SourceTable.cs" />
     <Compile Include="SourceTableField.cs" />
     <Compile Include="SourceTableLine.cs" />
@@ -67,7 +69,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataSource.cs" />
+    <Compile Include="SourceData.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

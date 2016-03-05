@@ -7,6 +7,8 @@ namespace Liq_UI
         //Field Value
         string FieldValue = "";
         //Relate Cells
-        List<RelateCell> RelateCells = new List<RelateCell>();
+        List<SourceRelateCell> RelateCells = new List<SourceRelateCell>();
+        //Relate Filters
+        List<SourceRelateFilter> RelateFilter = new List<SourceRelateFilter>();
     }
 }
