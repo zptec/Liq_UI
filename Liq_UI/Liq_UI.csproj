@@ -63,6 +63,8 @@
     <Compile Include="SourceTableField.cs" />
     <Compile Include="SourceTableLine.cs" />
     <Compile Include="TargetField.cs" />
+    <Compile Include="TargetRelateCell.cs" />
+    <Compile Include="TargetRelateFilter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
