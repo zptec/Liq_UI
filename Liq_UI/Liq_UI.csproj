@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RelateCell.cs" />
     <Compile Include="SourceTable.cs" />
     <Compile Include="SourceTableField.cs" />
     <Compile Include="SourceTableLine.cs" />
