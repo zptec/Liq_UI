@@ -5,6 +5,8 @@ namespace Liq_UI.Source
 {
     internal class SourceTable
     {
+        //Upper Object
+        SourceData Upper = new SourceData();
         //Table Fields
         List<string> TableFields = new List<string>();
         //Table Contents 
