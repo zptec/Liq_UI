@@ -55,16 +55,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SourceRelateCell.cs" />
-    <Compile Include="SourceRelateFilter.cs" />
-    <Compile Include="SourceRelateMode.cs" />
-    <Compile Include="SourceRelateParameter.cs" />
-    <Compile Include="SourceTable.cs" />
-    <Compile Include="SourceTableField.cs" />
-    <Compile Include="SourceTableLine.cs" />
-    <Compile Include="TargetField.cs" />
-    <Compile Include="TargetRelateCell.cs" />
-    <Compile Include="TargetRelateFilter.cs" />
+    <Compile Include="Source\SourceRelateCell.cs" />
+    <Compile Include="Source\SourceRelateFilter.cs" />
+    <Compile Include="Source\SourceRelateMode.cs" />
+    <Compile Include="Source\SourceRelateParameter.cs" />
+    <Compile Include="Source\SourceTable.cs" />
+    <Compile Include="Source\SourceTableField.cs" />
+    <Compile Include="Source\SourceTableLine.cs" />
+    <Compile Include="Target\TargetField.cs" />
+    <Compile Include="Target\TargetRelateCell.cs" />
+    <Compile Include="Target\TargetRelateFilter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,7 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SourceData.cs" />
+    <Compile Include="Source\SourceData.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

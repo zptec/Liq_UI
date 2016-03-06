@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 
-namespace Liq_UI
+namespace Liq_UI.Source
 {
     internal class SourceTable
     {

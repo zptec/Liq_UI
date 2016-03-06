@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Liq_UI
+namespace Liq_UI.Source
 {
     class SourceData
     {
