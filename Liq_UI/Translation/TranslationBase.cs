@@ -25,7 +25,9 @@ namespace Liq_UI.Translation
             //Translator for ABAP DB fetching
             TranslationDBFetching DBFetchingTranslator = new TranslationDBFetching(this);
             //Translator for ABAP table reading
-            TranslationTableReading ReadingTranslator = new TranslationTableReading(this);
+            TranslationALV ReadingTranslator = new TranslationALV(this);
+            //Translator for ABAP ALV
+            TranslationALV ALVTranslator = new TranslationALV(this);
             return 0;
         }
     }

@@ -77,6 +77,7 @@
     <Compile Include="Trainning\TrainningBase.cs" />
     <Compile Include="Trainning\TrainningCase.cs" />
     <Compile Include="Trainning\TrainningStatus.cs" />
+    <Compile Include="Translation\TranslationALV.cs" />
     <Compile Include="Translation\TranslationBase.cs" />
     <Compile Include="Translation\TranslationDBFetching.cs" />
     <Compile Include="Translation\TranslationDefinition.cs" />
