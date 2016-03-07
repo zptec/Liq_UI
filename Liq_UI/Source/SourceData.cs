@@ -8,10 +8,10 @@ namespace Liq_UI.Source
 {
     class SourceData
     {
-        //Source Tables List
-        List<SourceTable> TableList = new List<SourceTable>();
-
         //Source Status
         SourceStatus Status = new SourceStatus();
+
+        //Source Tables List
+        List<SourceTable> TableList = new List<SourceTable>();
     }
 }
