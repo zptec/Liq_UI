@@ -13,5 +13,11 @@ namespace Liq_UI.Source
 
         //Source Tables List
         List<SourceTable> TableList = new List<SourceTable>();
+
+        //Set table relations
+        int SetTableRelations()
+        {
+            return 0;
+        }
     }
 }

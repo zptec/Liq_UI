@@ -7,8 +7,10 @@ namespace Liq_UI.Source
     {
         //Upper Object
         SourceData Upper = new SourceData();
+
         //Table Fields
         List<string> TableFields = new List<string>();
+
         //Table Contents 
         List<SourceTableLine> TableContents = new List<SourceTableLine>();
     }

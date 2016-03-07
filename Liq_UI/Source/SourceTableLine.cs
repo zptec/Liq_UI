@@ -6,6 +6,7 @@ namespace Liq_UI.Source
     {
         //Upper Object
         SourceTable UpperObject = new SourceTable();
+
         //Field Data List
         List<SourceTableField> FieldDataList = new List<SourceTableField>();
     }
