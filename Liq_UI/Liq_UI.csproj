@@ -71,6 +71,7 @@
     <Compile Include="Target\TargetRelateFilter.cs" />
     <Compile Include="Trainning\TrainningBase.cs" />
     <Compile Include="Trainning\TrainningCase.cs" />
+    <Compile Include="Trainning\TrainningStatus.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

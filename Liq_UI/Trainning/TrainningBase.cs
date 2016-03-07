@@ -9,6 +9,9 @@ namespace Liq_UI.Trainning
 {
     class TrainningBase
     {
+        //Trainning Status
+        TrainningStatus Status = new TrainningStatus();
+
         //Tranning List
         List<TrainningCase> TrainningList = new List<TrainningCase>();
 
