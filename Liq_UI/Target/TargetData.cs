@@ -8,5 +8,10 @@ namespace Liq_UI.Target
 {
     class TargetData
     {
+        //Target Status
+        TargetStatus Status = new TargetStatus();
+
+        //Target Table
+        TargetTable TargetTable = new TargetTable();
     }
 }

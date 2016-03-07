@@ -1,6 +1,7 @@
 ﻿namespace Liq_UI.Source
 {
-    internal class SourceStatus
+    internal enum SourceStatus
     {
+
     }
 }

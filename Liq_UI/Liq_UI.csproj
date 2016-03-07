@@ -71,6 +71,8 @@
     <Compile Include="Target\TargetField.cs" />
     <Compile Include="Target\TargetRelateCell.cs" />
     <Compile Include="Target\TargetRelateFilter.cs" />
+    <Compile Include="Target\TargetStatus.cs" />
+    <Compile Include="Target\TargetTable.cs" />
     <Compile Include="Trainning\TrainningBase.cs" />
     <Compile Include="Trainning\TrainningCase.cs" />
     <Compile Include="Trainning\TrainningStatus.cs" />
