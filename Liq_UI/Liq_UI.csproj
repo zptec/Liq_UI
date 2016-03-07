@@ -73,6 +73,7 @@
     <Compile Include="Trainning\TrainningBase.cs" />
     <Compile Include="Trainning\TrainningCase.cs" />
     <Compile Include="Trainning\TrainningStatus.cs" />
+    <Compile Include="Translation\TranslationBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,9 +115,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Translation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
