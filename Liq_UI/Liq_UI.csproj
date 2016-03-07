@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Analysis\AnalysisCase.cs" />
+    <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
     <Compile Include="Source\SourceRelateCell.cs" />
     <Compile Include="Source\SourceRelateFilter.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Source\SourceTable.cs" />
     <Compile Include="Source\SourceTableField.cs" />
     <Compile Include="Source\SourceTableLine.cs" />
+    <Compile Include="Target\TargetData.cs" />
     <Compile Include="Target\TargetField.cs" />
     <Compile Include="Target\TargetRelateCell.cs" />
     <Compile Include="Target\TargetRelateFilter.cs" />
