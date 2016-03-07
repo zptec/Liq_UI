@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Analysis\AnalysisCase.cs" />
     <Compile Include="Filter\FilterField.cs" />
     <Compile Include="Source\SourceRelateCell.cs" />
     <Compile Include="Source\SourceRelateFilter.cs" />
@@ -66,6 +67,8 @@
     <Compile Include="Target\TargetField.cs" />
     <Compile Include="Target\TargetRelateCell.cs" />
     <Compile Include="Target\TargetRelateFilter.cs" />
+    <Compile Include="Trainning\TrainningBase.cs" />
+    <Compile Include="Trainning\TrainningCase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -108,9 +111,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Analysis\" />
     <Folder Include="Searching\" />
-    <Folder Include="Trainning\" />
     <Folder Include="Translation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
