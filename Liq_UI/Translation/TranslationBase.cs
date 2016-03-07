@@ -8,5 +8,16 @@ namespace Liq_UI.Translation
 {
     class TranslationBase
     {
+        //Translate Status
+        TranslationStatus Status = new TranslationStatus();
+
+        //Final Code
+        string FinalCode = "";
+
+        //Translate to final code
+        int Translate2Code()
+        {
+            return 0;
+        }
     }
 }

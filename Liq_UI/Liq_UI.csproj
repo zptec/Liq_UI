@@ -78,6 +78,7 @@
     <Compile Include="Trainning\TrainningCase.cs" />
     <Compile Include="Trainning\TrainningStatus.cs" />
     <Compile Include="Translation\TranslationBase.cs" />
+    <Compile Include="Translation\TranslationStatus.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
