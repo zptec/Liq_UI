@@ -58,6 +58,7 @@
     <Compile Include="Analysis\AnalysisCase.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
+    <Compile Include="Searching\SearchingBase.cs" />
     <Compile Include="Source\SourceRelateCell.cs" />
     <Compile Include="Source\SourceRelateFilter.cs" />
     <Compile Include="Source\SourceRelateMode.cs" />
@@ -114,7 +115,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Searching\" />
     <Folder Include="Translation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
