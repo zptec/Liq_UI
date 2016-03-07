@@ -19,8 +19,13 @@ namespace Liq_UI.Translation
         int Translate2Code(ref AnalysisBase analysisResult)
         {
             //Translator for ABAP data definition
-            TranslationDefinition TransDef = new TranslationDefinition(this);
-
+            TranslationDefinition DefTranslator = new TranslationDefinition(this);
+            //Translator for ABAP selection screen
+            TranslationSelection SelectionTranslator = new TranslationSelection(this);
+            //Translator for ABAP DB fetching
+            TranslationDBFetching DBFetchingTranslator = new TranslationDBFetching(this);
+            //Translator for ABAP table reading
+            TranslationTableReading ReadingTranslator = new TranslationTableReading(this);
             return 0;
         }
     }
