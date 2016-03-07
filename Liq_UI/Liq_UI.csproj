@@ -63,6 +63,7 @@
     <Compile Include="Source\SourceRelateFilter.cs" />
     <Compile Include="Source\SourceRelateMode.cs" />
     <Compile Include="Source\SourceRelateParameter.cs" />
+    <Compile Include="Source\SourceStatus.cs" />
     <Compile Include="Source\SourceTable.cs" />
     <Compile Include="Source\SourceTableField.cs" />
     <Compile Include="Source\SourceTableLine.cs" />
