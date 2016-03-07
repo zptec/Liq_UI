@@ -5,6 +5,8 @@ namespace Liq_UI.Source
 {
     internal class SourceRelateCell
     {
+        //Upper Object
+        SourceTableField UpperObject = new SourceTableField();
         //Relate reference
         TargetField RelateReference = new TargetField();
         //Relate Mode

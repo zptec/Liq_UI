@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Source\FilterField.cs" />
     <Compile Include="Source\SourceRelateCell.cs" />
     <Compile Include="Source\SourceRelateFilter.cs" />
     <Compile Include="Source\SourceRelateMode.cs" />
@@ -105,6 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Analysis\" />
+    <Folder Include="Filter\" />
+    <Folder Include="Searching\" />
+    <Folder Include="Trainning\" />
+    <Folder Include="Translation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

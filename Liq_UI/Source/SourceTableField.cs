@@ -4,6 +4,8 @@ namespace Liq_UI.Source
 {
     internal class SourceTableField
     {
+        //Upper Object
+        SourceTableLine UpperObject = new SourceTableLine();
         //Field Value
         string FieldValue = "";
         //Relate Cells
