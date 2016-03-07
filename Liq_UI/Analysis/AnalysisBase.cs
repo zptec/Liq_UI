@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Liq_UI.Analysis
 {
-    class AnalysisCase
+    class AnalysisBase
     {
 
     }
