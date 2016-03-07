@@ -1,4 +1,6 @@
-﻿namespace Liq_UI.Source
+﻿using Liq_UI.Filter;
+
+namespace Liq_UI.Source
 {
     internal class SourceRelateFilter
     {
