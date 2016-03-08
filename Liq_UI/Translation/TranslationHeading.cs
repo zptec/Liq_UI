@@ -25,8 +25,9 @@ namespace Liq_UI.Translation
         internal List<TranslationSegment> GenerateCode()
         {
             List<TranslationSegment> segments = new List<TranslationSegment>();
-            TranslationSegment segment = new TranslationSegment("Heading_Top");
 
+            //Heading Top
+            TranslationSegment segment = new TranslationSegment("Heading_Top", TranslationSegmentType.Heading);
             segment.CodeLines.Add("*&---------------------------------------------------------------------*");
             segment.CodeLines.Add("*& Report  " + ReportName);
             segment.CodeLines.Add("*&");
@@ -41,6 +42,8 @@ namespace Liq_UI.Translation
             segment.CodeLines.Add("*&---------------------------------------------------------------------*");
             segment.CodeLines.Add("");
             segment.CodeLines.Add("report  " + ReportName + ".");
+            segment.CodeLines.Add("");
+            segments.Add(segment);
             
             return segments;
         }

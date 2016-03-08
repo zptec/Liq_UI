@@ -4,6 +4,9 @@ namespace Liq_UI.Translation
 {
     internal class TranslationSegment
     {
+        //Name of Segment
+        private string SegName;
+
         //Segment Type
         TranslationSegmentType SegType = new TranslationSegmentType();
 
@@ -28,19 +31,10 @@ namespace Liq_UI.Translation
         //Code Lines
         public List<string> CodeLines = new List<string>();
 
-        private int v1;
-        private string v2;
-        private string v;
-
-        public TranslationSegment(int v1, string v2)
+        public TranslationSegment(string SegName, TranslationSegmentType SegType)
         {
-            this.v1 = v1;
-            this.v2 = v2;
-        }
-
-        public TranslationSegment(string v)
-        {
-            this.v = v;
+            this.SegName = SegName;
+            this.SegType = SegType;
         }
     }
 }
