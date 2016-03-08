@@ -10,7 +10,7 @@ namespace Liq_UI.Translation
     class TranslationBase
     {
         //Translate Status
-        TranslationStatus Status = new TranslationStatus();
+        TranslationStatus Status = TranslationStatus.NotTranslated;
 
         //Final Code
         TranslationCode FinalCode = new TranslationCode();
@@ -60,7 +60,10 @@ namespace Liq_UI.Translation
             //Generate ABAP ALV
             FinalCode.InsertCode( ALVTranslator.GenerateCode() );
 
-            return 0;
+            //Change global status
+            Status = TranslationStatus.TranslateFinished;
+
+            return 1;
         }
     }
 }
