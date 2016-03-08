@@ -4,6 +4,9 @@ namespace Liq_UI.Translation
 {
     internal class TranslationSegment
     {
+        //Segment Type
+        TranslationSegmentType SegType = new TranslationSegmentType();
+
         //File Name
         string FileName = "";
 
