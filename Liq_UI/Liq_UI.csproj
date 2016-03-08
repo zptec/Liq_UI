@@ -82,6 +82,7 @@
     <Compile Include="Translation\TranslationCode.cs" />
     <Compile Include="Translation\TranslationDBFetching.cs" />
     <Compile Include="Translation\TranslationDefinition.cs" />
+    <Compile Include="Translation\TranslationHeading.cs" />
     <Compile Include="Translation\TranslationProcessing.cs" />
     <Compile Include="Translation\TranslationSegment.cs" />
     <Compile Include="Translation\TranslationSegmentType.cs" />

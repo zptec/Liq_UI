@@ -18,6 +18,9 @@ namespace Liq_UI.Translation
         //Translate to final code
         int Translate2Code(ref AnalysisBase analysisResult)
         {
+            //Translator for ABAP data heading
+            TranslationHeading HeadingTranslator = new TranslationHeading(this);
+
             //Translator for ABAP data definition
             TranslationDefinition DefTranslator = new TranslationDefinition(this);
 
