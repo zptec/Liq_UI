@@ -1,4 +1,6 @@
-﻿namespace Liq_UI.Translation
+﻿using System;
+
+namespace Liq_UI.Translation
 {
     internal class TranslationDefinition
     {
@@ -7,6 +9,11 @@
         public TranslationDefinition(TranslationBase translationBase)
         {
             this.translationBase = translationBase;
+        }
+
+        internal TranslationSegment GenerateCode()
+        {
+            return new TranslationSegment();
         }
     }
 }

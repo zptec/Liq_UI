@@ -18,7 +18,7 @@ namespace Liq_UI.Translation
         //Translate to final code
         int Translate2Code(ref AnalysisBase analysisResult)
         {
-            //Translator for ABAP data heading
+            //Translator for ABAP heading
             TranslationHeading HeadingTranslator = new TranslationHeading(this);
 
             //Translator for ABAP data definition
@@ -38,6 +38,27 @@ namespace Liq_UI.Translation
 
             //Translator for ABAP ALV
             TranslationALV ALVTranslator = new TranslationALV(this);
+
+            //Generate ABAP data heading
+            FinalCode.InsertCode( HeadingTranslator.GenerateCode() );
+
+            //Generate ABAP data definition
+            FinalCode.InsertCode( DefTranslator.GenerateCode() );
+
+            //Generate ABAP selection screen
+            FinalCode.InsertCode( SelectionTranslator.GenerateCode() );
+
+            //Generate ABAP DB fetching
+            FinalCode.InsertCode( DBFetchingTranslator.GenerateCode() );
+
+            //Generate ABAP table reading
+            FinalCode.InsertCode( ReadingTranslator.GenerateCode() );
+
+            //Generate ABAP internal table processing
+            FinalCode.InsertCode( ProcessTranslator.GenerateCode() );
+
+            //Generate ABAP ALV
+            FinalCode.InsertCode( ALVTranslator.GenerateCode() );
 
             return 0;
         }

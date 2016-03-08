@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Liq_UI.Translation
 {
@@ -9,5 +10,11 @@ namespace Liq_UI.Translation
 
         //Code Segments
         List<TranslationSegment> CodeSegments = new List<TranslationSegment>();
+
+        //Insert Code Segment
+        internal void InsertCode(TranslationSegment translationSegment)
+        {
+            CodeSegments.Add(translationSegment);
+        }
     }
 }
