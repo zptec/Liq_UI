@@ -8,6 +8,8 @@ namespace Liq_UI.Analysis
 {
     class AnalysisBase
     {
+        public List<AnalysisField> OutputFields { get; internal set; }
+
         //Five Directions:
         //Get North ( Prev Union )
         int GetNorth()
