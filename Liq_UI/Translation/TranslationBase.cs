@@ -13,7 +13,7 @@ namespace Liq_UI.Translation
         TranslationStatus Status = new TranslationStatus();
 
         //Final Code
-        string FinalCode = "";
+        TranslationCode FinalCode = new TranslationCode();
 
         //Translate to final code
         int Translate2Code(ref AnalysisBase analysisResult)
