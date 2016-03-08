@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Liq_UI.Translation
 {
@@ -11,9 +12,9 @@ namespace Liq_UI.Translation
             this.translationBase = translationBase;
         }
 
-        internal TranslationSegment GenerateCode()
+        internal List<TranslationSegment> GenerateCode()
         {
-            throw new NotImplementedException();
+            return new List<TranslationSegment>();
         }
     }
 }

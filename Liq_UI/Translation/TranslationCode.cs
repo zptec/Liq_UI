@@ -12,9 +12,9 @@ namespace Liq_UI.Translation
         List<TranslationSegment> CodeSegments = new List<TranslationSegment>();
 
         //Insert Code Segment
-        internal void InsertCode(TranslationSegment translationSegment)
+        internal void InsertCode(List<TranslationSegment> Segments)
         {
-            CodeSegments.Add(translationSegment);
+            CodeSegments.AddRange(Segments);
         }
     }
 }

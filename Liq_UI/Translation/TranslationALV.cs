@@ -1,4 +1,6 @@
-﻿namespace Liq_UI.Translation
+﻿using System.Collections.Generic;
+
+namespace Liq_UI.Translation
 {
     internal class TranslationALV
     {
@@ -9,9 +11,9 @@
             this.translationBase = translationBase;
         }
 
-        internal TranslationSegment GenerateCode()
+        internal List<TranslationSegment> GenerateCode()
         {
-            return new TranslationSegment();
+            return new List<TranslationSegment>();
         }
     }
 }
