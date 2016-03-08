@@ -2,11 +2,11 @@
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationALV
+    internal class TranslationTableReading
     {
         private TranslationBase translationBase;
 
-        public TranslationALV(TranslationBase translationBase)
+        public TranslationTableReading(TranslationBase translationBase)
         {
             this.translationBase = translationBase;
         }
