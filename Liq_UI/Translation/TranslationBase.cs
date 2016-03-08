@@ -19,22 +19,22 @@ namespace Liq_UI.Translation
         int Translate2Code(ref AnalysisBase analysisResult)
         {
             //Translator for ABAP heading
-            TranslationHeading HeadingTranslator = new TranslationHeading(this);
+            TranslationHeading HeadingTranslator = new TranslationHeading(analysisResult);
 
             //Translator for ABAP data definition
-            TranslationDefinition DefTranslator = new TranslationDefinition(this);
+            TranslationDefinition DefTranslator = new TranslationDefinition(analysisResult);
 
             //Translator for ABAP selection screen
-            TranslationSelection SelectionTranslator = new TranslationSelection(this);
+            TranslationSelection SelectionTranslator = new TranslationSelection(analysisResult);
 
             //Translator for ABAP DB fetching
-            TranslationDBFetching DBFetchingTranslator = new TranslationDBFetching(this);
+            TranslationDBFetching DBFetchingTranslator = new TranslationDBFetching(analysisResult);
 
             //Translator for ABAP table reading
-            TranslationTableReading ReadingTranslator = new TranslationTableReading(this);
+            TranslationTableReading ReadingTranslator = new TranslationTableReading(analysisResult);
 
             //Translator for ABAP internal table processing
-            TranslationProcessing ProcessTranslator = new TranslationProcessing(this);
+            TranslationProcessing ProcessTranslator = new TranslationProcessing(analysisResult);
 
             //Translator for ABAP ALV
             TranslationALV ALVTranslator = new TranslationALV(this);

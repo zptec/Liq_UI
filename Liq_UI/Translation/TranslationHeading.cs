@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using Liq_UI.Analysis;
 
 namespace Liq_UI.Translation
 {
     internal class TranslationHeading
     {
+        //Analysis Result
+        private AnalysisBase analysisResult;
+
         //Report Name
         private string ReportName = "";
 
+        //Translation Base Info
         private TranslationBase translationBase;
 
         public TranslationHeading()
         {
             //Set Report Name
             ReportName = "Z" + DateTime.Now.ToString("yyyyMMddHHmmss");
+        }
+
+        public TranslationHeading(AnalysisBase analysisResult) : this()
+        {
+            this.analysisResult = analysisResult;
         }
 
         public TranslationHeading(TranslationBase translationBase) : this()
