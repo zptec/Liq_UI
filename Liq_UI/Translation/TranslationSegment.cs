@@ -4,6 +4,9 @@ namespace Liq_UI.Translation
 {
     internal class TranslationSegment
     {
+        //File Name
+        string FileName = "";
+
         //Begin Line
         int BeginLine;
 
@@ -11,7 +14,6 @@ namespace Liq_UI.Translation
         int LineCount
         {
             get { return CodeLines.Count; }
-            set { LineCount = value; }
         }
 
         //End Line
