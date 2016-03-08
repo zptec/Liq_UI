@@ -28,7 +28,7 @@ namespace Liq_UI.Translation
             List<TranslationSegment> segments = new List<TranslationSegment>();
 
             //Add Definition of ALV information
-            TranslationSegment segmentALVDef = new TranslationSegment("Definition_ALV_Info", TranslationSegmentType.Heading);
+            TranslationSegment segmentALVDef = new TranslationSegment("Definition_ALV_Info", TranslationSegmentType.Definition);
             segmentALVDef.CodeLines.Add("TYPE-POOLS: SLIS.");
             segmentALVDef.CodeLines.Add("************************************************************************");
             segmentALVDef.CodeLines.Add("\"DATA DEFINITION");
@@ -52,13 +52,14 @@ namespace Liq_UI.Translation
             segments.Add(segmentALVDef);
 
             //Add ALV fields
-            TranslationSegment segmentALVfields = new TranslationSegment("Definition_ALV_Fields", TranslationSegmentType.Heading);
+            TranslationSegment segmentALVfields = new TranslationSegment("Definition_ALV_Fields", TranslationSegmentType.Definition);
             foreach (AnalysisField field in analysisResult.OutputFields)
                 segmentALVfields.CodeLines.Add("\t\t" + field.FieldName + " TYPE " + field.RefTable + "-" + field.RefField + ",\t\"" + field.FieldDesc);
             segmentALVfields.CodeLines.Add("\tEND OF T_ALV,");
             segments.Add(segmentALVfields);
 
-            //
+            //Add Table definitions
+            TranslationSegment segmentTableDef = new TranslationSegment("Definition_Tables", TranslationSegmentType.Definition);
             return segments;
         }
     }
