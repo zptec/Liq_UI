@@ -53,13 +53,20 @@ namespace Liq_UI.Translation
 
             //Add ALV fields
             TranslationSegment segmentALVfields = new TranslationSegment("Definition_ALV_Fields", TranslationSegmentType.Definition);
-            foreach (AnalysisField field in analysisResult.OutputFields)
-                segmentALVfields.CodeLines.Add("\t\t" + field.FieldName + " TYPE " + field.RefTable + "-" + field.RefField + ",\t\"" + field.FieldDesc);
+            foreach (AnalysisField abapField in analysisResult.OutputFields)
+                segmentALVfields.CodeLines.Add("\t\t" + abapField.FieldName + " TYPE " + abapField.RefTable + "-" + abapField.RefField + ",\t\"" + abapField.FieldDesc);
             segmentALVfields.CodeLines.Add("\tEND OF T_ALV,");
             segments.Add(segmentALVfields);
 
             //Add Table definitions
             TranslationSegment segmentTableDef = new TranslationSegment("Definition_Tables", TranslationSegmentType.Definition);
+            //Add each tables
+            foreach (AnalysisTable abapTable in analysisResult.Tables)
+            {
+
+            }
+            //TODO 
+
             return segments;
         }
     }
