@@ -58,6 +58,7 @@
     <Compile Include="Analysis\AnalysisBase.cs" />
     <Compile Include="Analysis\AnalysisCase.cs" />
     <Compile Include="Analysis\AnalysisField.cs" />
+    <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
     <Compile Include="Searching\SearchingBase.cs" />

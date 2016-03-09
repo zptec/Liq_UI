@@ -63,9 +63,10 @@ namespace Liq_UI.Translation
             //Add each tables
             foreach (AnalysisTable abapTable in analysisResult.Tables)
             {
-
+                //Ddd line "DATA: BEGIN OF T_Table  OCCURS 1,"
+                segmentTableDef.CodeLines.Add("DATA: BEGIN OF " + abapTable.TableName + " OCCURS 1,");
+                //Todo
             }
-            //TODO 
 
             return segments;
         }
