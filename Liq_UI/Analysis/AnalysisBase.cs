@@ -9,7 +9,8 @@ namespace Liq_UI.Analysis
     class AnalysisBase
     {
         public List<AnalysisField> OutputFields { get; internal set; }
-        public IEnumerable<AnalysisTable> Tables { get; internal set; }
+        public List<AnalysisTable> Tables { get; internal set; }
+        public List<AnalysisTable> AuxiTables { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )

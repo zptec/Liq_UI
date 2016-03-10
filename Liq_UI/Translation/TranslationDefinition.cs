@@ -70,6 +70,18 @@ namespace Liq_UI.Translation
                 segmentALVfields.CodeLines.Add("\tEND OF " + abapTable.TableName + ",");
             }
 
+            //Add auxilliary Table definitions
+            TranslationSegment segmentAuxiTableDef = new TranslationSegment("Definition_Auxilliary_Tables", TranslationSegmentType.Definition);
+            //Add each tables
+            foreach (AnalysisTable abapAuxiTable in analysisResult.AuxiTables)
+            {
+                //Ddd line "DATA: BEGIN OF T_Table  OCCURS 1,"
+                segmentAuxiTableDef.CodeLines.Add("DATA: BEGIN OF " + abapAuxiTable.TableName + " OCCURS 1,");
+                foreach (AnalysisField abapTableField in abapAuxiTable.fields)
+                    segmentAuxiTableDef.CodeLines.Add("\t\t" + abapTableField.FieldName + " TYPE " + abapTableField.RefTable + "-" + abapTableField.RefField + ",\t\"" + abapTableField.FieldDesc);
+                segmentAuxiTableDef.CodeLines.Add("\tEND OF " + abapAuxiTable.TableName + ",");
+            }
+
             return segments;
         }
     }
