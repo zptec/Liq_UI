@@ -8,6 +8,8 @@ namespace Liq_UI.Analysis
 {
     class AnalysisTable
     {
+        internal List<AnalysisField> fields;
+
         public string TableName { get; internal set; }
     }
 }

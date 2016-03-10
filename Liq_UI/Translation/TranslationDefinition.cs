@@ -65,7 +65,9 @@ namespace Liq_UI.Translation
             {
                 //Ddd line "DATA: BEGIN OF T_Table  OCCURS 1,"
                 segmentTableDef.CodeLines.Add("DATA: BEGIN OF " + abapTable.TableName + " OCCURS 1,");
-                //Todo
+                foreach (AnalysisField abapTableField in abapTable.fields)
+                    segmentALVfields.CodeLines.Add("\t\t" + abapTableField.FieldName + " TYPE " + abapTableField.RefTable + "-" + abapTableField.RefField + ",\t\"" + abapTableField.FieldDesc);
+                segmentALVfields.CodeLines.Add("\tEND OF " + abapTable.TableName + ",");
             }
 
             return segments;
