@@ -75,13 +75,30 @@ namespace Liq_UI.Translation
             //Add each tables
             foreach (AnalysisTable abapAuxiTable in analysisResult.AuxiTables)
             {
-                //Ddd line "DATA: BEGIN OF T_Table  OCCURS 1,"
+                //Add line "DATA: BEGIN OF T_Table OCCURS 1,"
                 segmentAuxiTableDef.CodeLines.Add("DATA: BEGIN OF " + abapAuxiTable.TableName + " OCCURS 1,");
                 foreach (AnalysisField abapTableField in abapAuxiTable.fields)
                     segmentAuxiTableDef.CodeLines.Add("\t\t" + abapTableField.FieldName + " TYPE " + abapTableField.RefTable + "-" + abapTableField.RefField + ",\t\"" + abapTableField.FieldDesc);
                 segmentAuxiTableDef.CodeLines.Add("\tEND OF " + abapAuxiTable.TableName + ",");
             }
 
+            //ADD WORKAREA DIFINITION
+            TranslationSegment segmentWorkAreaDef = new TranslationSegment("Definition_Workarea", TranslationSegmentType.Definition);
+            //Add each work areas
+            foreach (AnalysisWorkArea abapWorkarea in analysisResult.WorkArea)
+            {
+                //Add Line "Data: W_WOREAREA TYPE TABLE-FIELDS,
+                segmentWorkAreaDef.CodeLines.Add("Data: " + abapWorkarea.WorkAreaName + " TYPE " + abapWorkarea.RefTable + "-" + abapWorkarea.RefField + ",");
+            }
+
+            //ADD VARIABLE DIFINITION
+            TranslationSegment segmentVariableaDef = new TranslationSegment("Definition_Variable", TranslationSegmentType.Definition);
+            foreach (AnalysisVariable abapVariable in analysisResult.Variable)
+            {
+                //Add Line "Data: G_VARIABLE TYPE TABLE-FIELDS,
+                segmentWorkAreaDef.CodeLines.Add("Data: " + abapVariable.VariableName + " TYPE " + abapVariable.RefTable + "-" + abapVariable.RefField + ",");
+            }
+            
             return segments;
         }
     }

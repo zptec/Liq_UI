@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Liq_UI.Translation;
 
 namespace Liq_UI.Analysis
 {
@@ -11,6 +12,8 @@ namespace Liq_UI.Analysis
         public List<AnalysisField> OutputFields { get; internal set; }
         public List<AnalysisTable> Tables { get; internal set; }
         public List<AnalysisTable> AuxiTables { get; internal set; }
+        public IEnumerable<AnalysisWorkArea> WorkArea { get; internal set; }
+        public IEnumerable<AnalysisVariable> Variable { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )
