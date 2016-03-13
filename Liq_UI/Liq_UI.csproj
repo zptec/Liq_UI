@@ -58,6 +58,7 @@
     <Compile Include="Analysis\AnalysisBase.cs" />
     <Compile Include="Analysis\AnalysisCase.cs" />
     <Compile Include="Analysis\AnalysisField.cs" />
+    <Compile Include="Analysis\AnalysisFormImpl.cs" />
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Trainning\TrainningStatus.cs" />
     <Compile Include="Analysis\AnalysisWorkArea.cs" />
     <Compile Include="Analysis\AnalysisVariable.cs" />
+    <Compile Include="Translation\AnalysisFormCall.cs" />
     <Compile Include="Translation\TranslationALV.cs" />
     <Compile Include="Translation\TranslationBase.cs" />
     <Compile Include="Translation\TranslationCode.cs" />

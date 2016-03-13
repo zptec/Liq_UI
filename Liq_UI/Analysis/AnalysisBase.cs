@@ -14,6 +14,8 @@ namespace Liq_UI.Analysis
         public List<AnalysisTable> AuxiTables { get; internal set; }
         public IEnumerable<AnalysisWorkArea> WorkArea { get; internal set; }
         public IEnumerable<AnalysisVariable> Variable { get; internal set; }
+        public IEnumerable<AnalysisFormCall> FormCalls { get; internal set; }
+        public IEnumerable<AnalysisFormImpl> FormImpl { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )

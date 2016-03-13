@@ -24,7 +24,30 @@ namespace Liq_UI.Translation
 
         internal List<TranslationSegment> GenerateCode()
         {
-            return new List<TranslationSegment>();
+            List<TranslationSegment> segments = new List<TranslationSegment>();
+
+            //Add START-OF-SELECTION
+            TranslationSegment segmentStartOfSelection = new TranslationSegment("DBFetching_STARTOFSELECTION", TranslationSegmentType.DBFetching);
+            segmentStartOfSelection.CodeLines.Add("*---------------------------------------------------------------------*");
+            segmentStartOfSelection.CodeLines.Add("\" START OF SELECTION");
+            segmentStartOfSelection.CodeLines.Add("*---------------------------------------------------------------------*");
+            segmentStartOfSelection.CodeLines.Add("START OF SELECTION");
+            segmentStartOfSelection.CodeLines.Add("");
+            //Add each form call
+            foreach (AnalysisFormCall abapFormCall in analysisResult.FormCalls)
+            {
+                segmentStartOfSelection.CodeLines.Add("\"" + abapFormCall.Index + " " + abapFormCall.FormDesc);
+                segmentStartOfSelection.CodeLines.Add("PERFORM " + abapFormCall.FromName + ".");
+            }
+            segments.Add(segmentStartOfSelection);
+
+            //Add each of Form implementation
+            foreach (AnalysisFormImpl abapFormImpl in analysisResult.FormImpl)
+            {
+                //
+
+            }
+            return segments;
         }
     }
 }
