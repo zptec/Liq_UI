@@ -37,15 +37,32 @@ namespace Liq_UI.Translation
             foreach (AnalysisFormCall abapFormCall in analysisResult.FormCalls)
             {
                 segmentStartOfSelection.CodeLines.Add("\"" + abapFormCall.Index + " " + abapFormCall.FormDesc);
-                segmentStartOfSelection.CodeLines.Add("PERFORM " + abapFormCall.FromName + ".");
+                segmentStartOfSelection.CodeLines.Add("PERFORM " + abapFormCall.FormName + ".");
             }
             segments.Add(segmentStartOfSelection);
 
             //Add each of Form implementation
+            TranslationSegment segmentFormImpl = new TranslationSegment("DBFetching_FormImpl", TranslationSegmentType.DBFetching);
             foreach (AnalysisFormImpl abapFormImpl in analysisResult.FormImpl)
             {
-                //
+                //Add Form Header
+                segmentFormImpl.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentFormImpl.CodeLines.Add("*&      Form  " + abapFormImpl.FormName);
+                segmentFormImpl.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentFormImpl.CodeLines.Add("*       " + abapFormImpl.FormDesc);
+                segmentFormImpl.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentFormImpl.CodeLines.Add("*  -->  p1        text");
+                segmentFormImpl.CodeLines.Add("*  <--  p2        text");
+                segmentFormImpl.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentFormImpl.CodeLines.Add("FORM " + abapFormImpl.FormName + " .");
+                //Add Table Crear
+                foreach (AnalysisTable)
+                {
 
+                }
+                //Add Selection Statement
+
+                segmentFormImpl.CodeLines.Add("ENDFORM                    \" " + abapFormImpl.FormName );
             }
             return segments;
         }

@@ -8,5 +8,7 @@ namespace Liq_UI.Analysis
 {
     class AnalysisFormImpl
     {
+        public string FormDesc { get; internal set; }
+        public string FormName { get; internal set; }
     }
 }
