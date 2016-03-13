@@ -69,6 +69,7 @@ namespace Liq_UI.Translation
                     segmentALVfields.CodeLines.Add("\t\t" + abapTableField.FieldName + " TYPE " + abapTableField.RefTable + "-" + abapTableField.RefField + ",\t\"" + abapTableField.FieldDesc);
                 segmentALVfields.CodeLines.Add("\tEND OF " + abapTable.TableName + ",");
             }
+            segments.Add(segmentTableDef);
 
             //Add auxilliary Table definitions
             TranslationSegment segmentAuxiTableDef = new TranslationSegment("Definition_Auxilliary_Tables", TranslationSegmentType.Definition);
@@ -81,6 +82,7 @@ namespace Liq_UI.Translation
                     segmentAuxiTableDef.CodeLines.Add("\t\t" + abapTableField.FieldName + " TYPE " + abapTableField.RefTable + "-" + abapTableField.RefField + ",\t\"" + abapTableField.FieldDesc);
                 segmentAuxiTableDef.CodeLines.Add("\tEND OF " + abapAuxiTable.TableName + ",");
             }
+            segments.Add(segmentAuxiTableDef);
 
             //ADD WORKAREA DIFINITION
             TranslationSegment segmentWorkAreaDef = new TranslationSegment("Definition_Workarea", TranslationSegmentType.Definition);
@@ -90,6 +92,7 @@ namespace Liq_UI.Translation
                 //Add Line "Data: W_WOREAREA TYPE TABLE-FIELDS,
                 segmentWorkAreaDef.CodeLines.Add("Data: " + abapWorkarea.WorkAreaName + " TYPE " + abapWorkarea.RefTable + "-" + abapWorkarea.RefField + ",");
             }
+            segments.Add(segmentWorkAreaDef);
 
             //ADD VARIABLE DIFINITION
             TranslationSegment segmentVariableaDef = new TranslationSegment("Definition_Variable", TranslationSegmentType.Definition);
@@ -98,7 +101,8 @@ namespace Liq_UI.Translation
                 //Add Line "Data: G_VARIABLE TYPE TABLE-FIELDS,
                 segmentWorkAreaDef.CodeLines.Add("Data: " + abapVariable.VariableName + " TYPE " + abapVariable.RefTable + "-" + abapVariable.RefField + ",");
             }
-            
+            segments.Add(segmentVariableaDef);
+
             return segments;
         }
     }
