@@ -141,6 +141,7 @@ namespace Liq_UI.Translation
                     }
                     TableSortStr += ".";
                     segmentFormImpl.CodeLines.Add(TableSortStr);
+                    segmentFormImpl.CodeLines.Add("");
                 }
                 //Add Selection Statement
 
