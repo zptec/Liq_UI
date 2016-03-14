@@ -19,5 +19,6 @@ namespace Liq_UI.Analysis
         public object TableAs { get; internal set; }
         public string TableDesc { get; internal set; }
         public string TableName { get; internal set; }
+        public IEnumerable<AnalysisField> TableKeys { get; internal set; }
     }
 }
