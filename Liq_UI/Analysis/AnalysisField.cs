@@ -19,5 +19,6 @@ namespace Liq_UI.Analysis
 
         //Ref Table Name
         public string RefTable { get; internal set; }
+        public string TableAs { get; internal set; }
     }
 }

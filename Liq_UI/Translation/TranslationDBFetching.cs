@@ -6,6 +6,8 @@ namespace Liq_UI.Translation
 {
     internal class TranslationDBFetching
     {
+        private object abapTable;
+
         //Analysis Result
         private AnalysisBase analysisResult;
 
@@ -55,10 +57,90 @@ namespace Liq_UI.Translation
                 segmentFormImpl.CodeLines.Add("*  <--  p2        text");
                 segmentFormImpl.CodeLines.Add("*&---------------------------------------------------------------------*");
                 segmentFormImpl.CodeLines.Add("FORM " + abapFormImpl.FormName + " .");
-                //Add Table Crear
-                foreach (AnalysisTable)
-                {
-
+                segmentFormImpl.CodeLines.Add("");
+                
+                foreach (AnalysisTable abapTable in abapFormImpl.InTabes)
+                {   
+                    //Add Table Crear
+                    segmentFormImpl.CodeLines.Add("Clear " + abapTable.TableName + "[].");
+                    //Add Entries header
+                    if (abapTable.Entries != null)
+                    {
+                        segmentFormImpl.CodeLines.Add("IF " + abapTable.Entries.TableName + "[] IS NOT INITIAL.");
+                    }
+                    //Add Comment
+                    segmentFormImpl.CodeLines.Add("\"" + abapTable.TableDesc);
+                    //Add SQL
+                    segmentFormImpl.CodeLines.Add("SELECT");
+                    //Add selection fields
+                    foreach (AnalysisField selectionField in abapTable.SelectionFields)
+                    {
+                        if(selectionField.TableAs != null)
+                            segmentFormImpl.CodeLines.Add("\t" + selectionField.TableAs + "~" + selectionField.FieldName + "\"" + selectionField.FieldDesc);
+                        else
+                            segmentFormImpl.CodeLines.Add("\t" + selectionField.FieldName + "\"" + selectionField.FieldDesc);
+                    }
+                    bool firstFromTable;
+                    firstFromTable = true;
+                    //Add selection From
+                    foreach (AnalysisTable selectionFrom in abapTable.SelectionFrom)
+                    {
+                        if (firstFromTable)
+                        {
+                            //From ZTable as A
+                            if (selectionFrom.TableAs != null)
+                                segmentFormImpl.CodeLines.Add("\tFROM " + selectionFrom.TableName + " AS " + selectionFrom.TableAs);
+                            //From ZTable as A
+                            else
+                                segmentFormImpl.CodeLines.Add("\tFROM " + selectionFrom.TableName);
+                        }
+                        else
+                        {
+                            //Innter Join / Left Join / Right Join ZTable as A 
+                            segmentFormImpl.CodeLines.Add("\t" + selectionFrom.JoinType.ToString() + " " + selectionFrom.TableName + " AS " + selectionFrom.TableAs);
+                            bool firstJoinOn;
+                            firstJoinOn = true;
+                            foreach (AnalysisCondition abapCondition in selectionFrom.JoinCondition)
+                            {
+                                if (firstJoinOn)
+                                    //ON A~FIELD1 EQ B~FIELD1
+                                    segmentFormImpl.CodeLines.Add("ON " + abapCondition.LTableAs + "~" + abapCondition.LFieldName + " EQ " + abapCondition.RTableAs + "~" + abapCondition.RFieldName);
+                                else
+                                    //AND A~FIELD1 EQ B~FIELD1
+                                    segmentFormImpl.CodeLines.Add("AND " + abapCondition.LTableAs + "~" + abapCondition.LFieldName + " EQ " + abapCondition.RTableAs + "~" + abapCondition.RFieldName);
+                                firstJoinOn = false;
+                            }
+                        }
+                        firstFromTable = false;
+                    }
+                    //Add selection Contions
+                    bool firstCondition;
+                    firstCondition = true;
+                    foreach (AnalysisCondition selectionCondition in abapTable.SelectionConditions)
+                    {
+                        if (firstCondition)
+                            //ON A~FIELD1 EQ B~FIELD1
+                            segmentFormImpl.CodeLines.Add("WHERE " + selectionCondition.LTableAs + "~" + selectionCondition.LFieldName + " EQ " + selectionCondition.RTableAs + "~" + selectionCondition.RFieldName);
+                        else
+                            //AND A~FIELD1 EQ B~FIELD1
+                            segmentFormImpl.CodeLines.Add("AND " + selectionCondition.LTableAs + "~" + selectionCondition.LFieldName + " EQ " + selectionCondition.RTableAs + "~" + selectionCondition.RFieldName);
+                        firstCondition = false;
+                    }
+                    segmentFormImpl.CodeLines.Add(".");
+                    //Add Entries foot
+                    if (abapTable.Entries != null)
+                    {
+                        segmentFormImpl.CodeLines.Add("ENDIF .");
+                    }
+                    //Add Sort
+                    string TableSortStr = "";
+                    TableSortStr = "SORT " + abapTable.TableName + " BY ";
+                    foreach (AnalysisField TableKey in abapTable.TableKeys)
+                    {
+                        TableSortStr += TableKey.FieldName + " ";
+                    }
+                    TableSortStr += ".";
+                    segmentFormImpl.CodeLines.Add(TableSortStr);
                 }
                 //Add Selection Statement
 
