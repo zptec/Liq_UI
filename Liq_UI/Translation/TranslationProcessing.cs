@@ -24,7 +24,13 @@ namespace Liq_UI.Translation
 
         internal List<TranslationSegment> GenerateCode()
         {
-            return new List<TranslationSegment>();
+            List<TranslationSegment> segments = new List<TranslationSegment>();
+
+            //Add each form processing implementation
+            TranslationSegment segmentProcessing = new TranslationSegment("Processing__FormImpl", TranslationSegmentType.DBFetching);
+
+            segments.Add(segmentProcessing);
+            return segments;
         }
     }
 }
