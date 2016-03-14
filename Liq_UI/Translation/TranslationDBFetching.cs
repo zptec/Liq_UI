@@ -65,9 +65,7 @@ namespace Liq_UI.Translation
                     segmentFormImpl.CodeLines.Add("Clear " + abapTable.TableName + "[].");
                     //Add Entries header
                     if (abapTable.Entries != null)
-                    {
                         segmentFormImpl.CodeLines.Add("IF " + abapTable.Entries.TableName + "[] IS NOT INITIAL.");
-                    }
                     //Add Comment
                     segmentFormImpl.CodeLines.Add("\"" + abapTable.TableDesc);
                     //Add SQL
@@ -113,6 +111,11 @@ namespace Liq_UI.Translation
                         }
                         firstFromTable = false;
                     }
+                    //Add Into Table Statement
+                    segmentFormImpl.CodeLines.Add("INTO CORRESPONDING FIELDS OF TABLE " + abapTable.TableName);
+                    //Add For All Entries Line
+                    if (abapTable.Entries != null)
+                        segmentFormImpl.CodeLines.Add("FOR ALL ENTRIES IN " + abapTable.Entries);
                     //Add selection Contions
                     bool firstCondition;
                     firstCondition = true;
@@ -129,9 +132,7 @@ namespace Liq_UI.Translation
                     segmentFormImpl.CodeLines.Add(".");
                     //Add Entries foot
                     if (abapTable.Entries != null)
-                    {
                         segmentFormImpl.CodeLines.Add("ENDIF .");
-                    }
                     //Add Sort
                     string TableSortStr = "";
                     TableSortStr = "SORT " + abapTable.TableName + " BY ";
