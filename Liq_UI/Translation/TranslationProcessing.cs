@@ -27,8 +27,21 @@ namespace Liq_UI.Translation
             List<TranslationSegment> segments = new List<TranslationSegment>();
 
             //Add each form processing implementation
-            TranslationSegment segmentProcessing = new TranslationSegment("Processing__FormImpl", TranslationSegmentType.DBFetching);
-
+            TranslationSegment segmentProcessing = new TranslationSegment("Processing_FormImpl", TranslationSegmentType.DBFetching);
+            foreach (AnalysisFormImpl abapFormImpl in analysisResult.FormImpl)
+            {
+                //Add Form Header
+                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentProcessing.CodeLines.Add("*&      Form  " + abapFormImpl.FormName);
+                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentProcessing.CodeLines.Add("*       " + abapFormImpl.FormDesc);
+                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentProcessing.CodeLines.Add("*  -->  p1        text");
+                segmentProcessing.CodeLines.Add("*  <--  p2        text");
+                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
+                segmentProcessing.CodeLines.Add("FORM " + abapFormImpl.FormName + " .");
+                segmentProcessing.CodeLines.Add("");
+            }
             segments.Add(segmentProcessing);
             return segments;
         }
