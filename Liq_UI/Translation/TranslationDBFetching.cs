@@ -58,9 +58,12 @@ namespace Liq_UI.Translation
                 segmentFormImpl.CodeLines.Add("*&---------------------------------------------------------------------*");
                 segmentFormImpl.CodeLines.Add("FORM " + abapFormImpl.FormName + " .");
                 segmentFormImpl.CodeLines.Add("");
-                
+
+                //Indicate the First Fetching DB Table
+                bool firstFetchingTable;
+                firstFetchingTable = true;
                 foreach (AnalysisTable abapTable in abapFormImpl.InTabes)
-                {   
+                {
                     //Add Table Crear
                     segmentFormImpl.CodeLines.Add("Clear " + abapTable.TableName + "[].");
                     //Add Entries header
@@ -112,7 +115,10 @@ namespace Liq_UI.Translation
                         firstFromTable = false;
                     }
                     //Add Into Table Statement
-                    segmentFormImpl.CodeLines.Add("INTO CORRESPONDING FIELDS OF TABLE " + abapTable.TableName);
+                    if(firstFetchingTable)
+                        segmentFormImpl.CodeLines.Add("INTO CORRESPONDING FIELDS OF TABLE " + abapTable.TableName);
+                    else
+                        segmentFormImpl.CodeLines.Add("APPENDING CORRESPONDING FIELDS OF TABLE " + abapTable.TableName);
                     //Add For All Entries Line
                     if (abapTable.Entries != null)
                         segmentFormImpl.CodeLines.Add("FOR ALL ENTRIES IN " + abapTable.Entries);
@@ -143,8 +149,9 @@ namespace Liq_UI.Translation
                     TableSortStr += ".";
                     segmentFormImpl.CodeLines.Add(TableSortStr);
                     segmentFormImpl.CodeLines.Add("");
+                    //Indicate the First Fetching DB Table
+                    firstFetchingTable = false;
                 }
-                //Add Selection Statement
 
                 segmentFormImpl.CodeLines.Add("ENDFORM                    \" " + abapFormImpl.FormName );
             }
