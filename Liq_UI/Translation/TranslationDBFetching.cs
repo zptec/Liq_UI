@@ -152,7 +152,6 @@ namespace Liq_UI.Translation
                     //Indicate the First Fetching DB Table
                     firstFetchingTable = false;
                 }
-
                 segmentFormImpl.CodeLines.Add("ENDFORM                    \" " + abapFormImpl.FormName );
             }
             return segments;

@@ -27,22 +27,65 @@ namespace Liq_UI.Translation
             List<TranslationSegment> segments = new List<TranslationSegment>();
 
             //Add each form processing implementation
-            TranslationSegment segmentProcessing = new TranslationSegment("Processing_FormImpl", TranslationSegmentType.DBFetching);
-            foreach (AnalysisFormImpl abapFormImpl in analysisResult.FormImpl)
-            {
-                //Add Form Header
-                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
-                segmentProcessing.CodeLines.Add("*&      Form  " + abapFormImpl.FormName);
-                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
-                segmentProcessing.CodeLines.Add("*       " + abapFormImpl.FormDesc);
-                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
-                segmentProcessing.CodeLines.Add("*  -->  p1        text");
-                segmentProcessing.CodeLines.Add("*  <--  p2        text");
-                segmentProcessing.CodeLines.Add("*&---------------------------------------------------------------------*");
-                segmentProcessing.CodeLines.Add("FORM " + abapFormImpl.FormName + " .");
-                segmentProcessing.CodeLines.Add("");
-            }
-            segments.Add(segmentProcessing);
+
+            //Add Mapping Form
+            TranslationSegment segmentMapping = new TranslationSegment("Processing_Mapping", TranslationSegmentType.DBFetching);
+
+            //Add Form Header
+            segmentMapping.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMapping.CodeLines.Add("*&      Form  " + analysisResult.MappingFormImpl.FormName);
+            segmentMapping.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMapping.CodeLines.Add("*       " + analysisResult.MappingFormImpl.FormDesc);
+            segmentMapping.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMapping.CodeLines.Add("*  -->  p1        text");
+            segmentMapping.CodeLines.Add("*  <--  p2        text");
+            segmentMapping.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMapping.CodeLines.Add("FORM " + analysisResult.MappingFormImpl.FormName + " .");
+            segmentMapping.CodeLines.Add("");
+
+            segmentMapping.CodeLines.Add("ENDFORM                    \" " + analysisResult.MappingFormImpl.FormName);
+
+            segments.Add(segmentMapping);
+
+            //Add Mix Form
+            TranslationSegment segmentMix = new TranslationSegment("Processing_Mix", TranslationSegmentType.DBFetching);
+
+            //Add Form Header
+            segmentMix.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMix.CodeLines.Add("*&      Form  " + analysisResult.MixFormImpl.FormName);
+            segmentMix.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMix.CodeLines.Add("*       " + analysisResult.MixFormImpl.FormDesc);
+            segmentMix.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMix.CodeLines.Add("*  -->  p1        text");
+            segmentMix.CodeLines.Add("*  <--  p2        text");
+            segmentMix.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentMix.CodeLines.Add("FORM " + analysisResult.MixFormImpl.FormName + " .");
+            segmentMix.CodeLines.Add("");
+
+            segmentMix.CodeLines.Add("ENDFORM                    \" " + analysisResult.MixFormImpl.FormName);
+
+            segments.Add(segmentMix);
+
+            //Add Splitter Form
+            TranslationSegment segmentSplitter = new TranslationSegment("Processing_Splitter", TranslationSegmentType.DBFetching);
+
+            //Add Form Header
+            segmentSplitter.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentSplitter.CodeLines.Add("*&      Form  " + analysisResult.SplitterFormImpl.FormName);
+            segmentSplitter.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentSplitter.CodeLines.Add("*       " + analysisResult.SplitterFormImpl.FormDesc);
+            segmentSplitter.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentSplitter.CodeLines.Add("*  -->  p1        text");
+            segmentSplitter.CodeLines.Add("*  <--  p2        text");
+            segmentSplitter.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentSplitter.CodeLines.Add("FORM " + analysisResult.SplitterFormImpl.FormName + " .");
+            segmentSplitter.CodeLines.Add("");
+
+            segmentSplitter.CodeLines.Add("ENDFORM                    \" " + analysisResult.SplitterFormImpl.FormName);
+
+            segments.Add(segmentSplitter);
+
+
             return segments;
         }
     }

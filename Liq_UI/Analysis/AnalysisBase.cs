@@ -16,6 +16,9 @@ namespace Liq_UI.Analysis
         public IEnumerable<AnalysisVariable> Variable { get; internal set; }
         public IEnumerable<AnalysisFormCall> FormCalls { get; internal set; }
         public IEnumerable<AnalysisFormImpl> FormImpl { get; internal set; }
+        public AnalysisFormImpl MappingFormImpl { get; internal set; }
+        public AnalysisFormImpl MixFormImpl { get; internal set; }
+        public AnalysisFormImpl SplitterFormImpl { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )
