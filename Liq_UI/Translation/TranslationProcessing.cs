@@ -43,6 +43,24 @@ namespace Liq_UI.Translation
             segmentMapping.CodeLines.Add("FORM " + analysisResult.MappingFormImpl.FormName + " .");
             segmentMapping.CodeLines.Add("");
 
+            //LOOP AT T_TAB.
+            segmentMapping.CodeLines.Add("");
+
+            foreach ()
+            {
+                //SET FIX VALUE
+                segmentMapping.CodeLines.Add("");
+
+                //READ TABLE BINARY SEARCH
+                segmentMapping.CodeLines.Add("");
+
+                //MODIFY T_TAB.
+                segmentMapping.CodeLines.Add("\tModify " + analysisResult.MappingFormImpl.InTable.TableName + ".");
+            }
+
+            //ENDLOOP.
+            segmentMapping.CodeLines.Add("ENDLOOP.");
+
             segmentMapping.CodeLines.Add("ENDFORM                    \" " + analysisResult.MappingFormImpl.FormName);
 
             segments.Add(segmentMapping);
