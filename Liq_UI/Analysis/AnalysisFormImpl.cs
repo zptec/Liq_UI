@@ -8,6 +8,8 @@ namespace Liq_UI.Analysis
 {
     class AnalysisFormImpl
     {
+        public AnalysisTable ALVTable { get; internal set; }
+
         public List<AnalysisFixMapping> FixMappings { get; internal set; }
 
         public string FormDesc { get; internal set; }
@@ -21,5 +23,7 @@ namespace Liq_UI.Analysis
         public List<AnalysisMix> Mixs { get; internal set; }
 
         public List<AnalysisReadMapping> ReadMapping { get; internal set; }
+
+        public List<AnalysisField> Splitters { get; internal set; }
     }
 }

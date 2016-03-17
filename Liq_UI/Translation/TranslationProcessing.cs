@@ -175,7 +175,6 @@ namespace Liq_UI.Translation
             //MODIFY T_TAB.
             segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.MixFormImpl.InTable.TableName + ".");
 
-
             //ENDLOOP.
             segmentMapping.CodeLines.Add("ENDLOOP.");
 
@@ -198,14 +197,24 @@ namespace Liq_UI.Translation
             segmentSplitter.CodeLines.Add("FORM " + analysisResult.SplitterFormImpl.FormName + " .");
             segmentSplitter.CodeLines.Add("");
 
+            //Define splitter Fields
+            foreach (AnalysisField splitterField in analysisResult.SplitterFormImpl.Splitters)
+            {
+
+            }
+
             //LOOP AT T_TAB.
             segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
 
             //Mix string
             string strSplitter = "";
 
+            //
+
+
             //MODIFY T_TAB.
-            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
+            segmentMapping.CodeLines.Add("\tAPPEND " + analysisResult.SplitterFormImpl.InTable.TableName +
+                " TO " + analysisResult.SplitterFormImpl.ALVTable.TableName + ".");
             
             //ENDLOOP.
             segmentMapping.CodeLines.Add("ENDLOOP.");
@@ -213,7 +222,6 @@ namespace Liq_UI.Translation
             segmentSplitter.CodeLines.Add("ENDFORM                    \" " + analysisResult.SplitterFormImpl.FormName);
 
             segments.Add(segmentSplitter);
-
 
             return segments;
         }
