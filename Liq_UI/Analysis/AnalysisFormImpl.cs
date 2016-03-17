@@ -18,6 +18,8 @@ namespace Liq_UI.Analysis
 
         public AnalysisTable InTable { get; internal set; }
 
+        public List<AnalysisMix> Mixs { get; internal set; }
+
         public List<AnalysisReadMapping> ReadMapping { get; internal set; }
     }
 }

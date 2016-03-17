@@ -64,6 +64,7 @@
     <Compile Include="Analysis\AnalysisFormImpl.cs" />
     <Compile Include="Analysis\AnalysisJoinType.cs" />
     <Compile Include="Analysis\AnalysisJoinTypeEnum.cs" />
+    <Compile Include="Analysis\AnalysisMix.cs" />
     <Compile Include="Analysis\AnalysisReadMapping.cs" />
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />

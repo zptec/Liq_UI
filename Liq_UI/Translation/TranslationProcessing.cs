@@ -82,7 +82,7 @@ namespace Liq_UI.Translation
             }
 
             //MODIFY T_TAB.
-            segmentMapping.CodeLines.Add("\tModify " + analysisResult.MappingFormImpl.InTable.TableName + ".");
+            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.MappingFormImpl.InTable.TableName + ".");
 
             //ENDLOOP.
             segmentMapping.CodeLines.Add("ENDLOOP.");
@@ -90,6 +90,7 @@ namespace Liq_UI.Translation
             segmentMapping.CodeLines.Add("ENDFORM                    \" " + analysisResult.MappingFormImpl.FormName);
 
             segments.Add(segmentMapping);
+
 
             //Add Mix Form
             TranslationSegment segmentMix = new TranslationSegment("Processing_Mix", TranslationSegmentType.DBFetching);
@@ -105,6 +106,25 @@ namespace Liq_UI.Translation
             segmentMix.CodeLines.Add("*&---------------------------------------------------------------------*");
             segmentMix.CodeLines.Add("FORM " + analysisResult.MixFormImpl.FormName + " .");
             segmentMix.CodeLines.Add("");
+
+            //LOOP AT T_TAB.
+            segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.MappingFormImpl.InTable.TableName + ".");
+
+            //Mix string
+            string strMix = "";
+
+            //Add Mixs
+            foreach (AnalysisMix mix in analysisResult.MappingFormImpl.Mixs)
+            {
+
+            }
+
+            //MODIFY T_TAB.
+            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.MappingFormImpl.InTable.TableName + ".");
+
+
+            //ENDLOOP.
+            segmentMapping.CodeLines.Add("ENDLOOP.");
 
             segmentMix.CodeLines.Add("ENDFORM                    \" " + analysisResult.MixFormImpl.FormName);
 
