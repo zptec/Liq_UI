@@ -116,7 +116,56 @@ namespace Liq_UI.Translation
             //Add Mixs
             foreach (AnalysisMix mix in analysisResult.MappingFormImpl.Mixs)
             {
-
+                strMix = analysisResult.MappingFormImpl.InTable.TableName + "-"
+                        + mix.TargetField.FieldName + " = ";
+                //First item indicator
+                bool firstItem;
+                firstItem = true;
+                //Add items
+                foreach (AnalysisItem item in mix.Items)
+                {
+                    // "+/-" between items
+                    if (!firstItem)
+                    {
+                        if(item.Cons >= 0)
+                            strMix += " + ";
+                        else
+                            strMix += " - ";
+                    }
+                    //First element indicator
+                    bool firstElement;
+                    firstElement = true;
+                    if (item.Cons != 1)
+                    {
+                        //Constanse Parameter
+                        strMix += "\"" + item.Cons + "\"";
+                        firstElement = false;
+                    }
+                    //Add elements
+                    foreach (AnalysisElement element in item.Elements)
+                    {
+                        if (firstElement)
+                        {
+                            //Multiple Operator
+                            if (element.Operator == AnalysisOperator.Multiple)
+                                strMix += analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                            //Divide Operator
+                            else if(element.Operator == AnalysisOperator.Divide)
+                                strMix += "1 / " + analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                        }
+                        else
+                        {
+                            //Multiple Operator
+                            if (element.Operator == AnalysisOperator.Multiple)
+                                strMix += " * " + analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                            //Divide Operator
+                            else if (element.Operator == AnalysisOperator.Divide)
+                                strMix += " / " + analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                        }
+                        firstElement = false;
+                    }
+                    firstItem = false;
+                }
             }
 
             //MODIFY T_TAB.
