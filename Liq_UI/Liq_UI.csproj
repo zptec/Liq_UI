@@ -59,9 +59,12 @@
     <Compile Include="Analysis\AnalysisCase.cs" />
     <Compile Include="Analysis\AnalysisCondition.cs" />
     <Compile Include="Analysis\AnalysisField.cs" />
+    <Compile Include="Analysis\AnalysisFieldMapping.cs" />
+    <Compile Include="Analysis\AnalysisFixMapping.cs" />
     <Compile Include="Analysis\AnalysisFormImpl.cs" />
     <Compile Include="Analysis\AnalysisJoinType.cs" />
     <Compile Include="Analysis\AnalysisJoinTypeEnum.cs" />
+    <Compile Include="Analysis\AnalysisReadMapping.cs" />
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
