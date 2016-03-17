@@ -108,15 +108,15 @@ namespace Liq_UI.Translation
             segmentMix.CodeLines.Add("");
 
             //LOOP AT T_TAB.
-            segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.MappingFormImpl.InTable.TableName + ".");
+            segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.MixFormImpl.InTable.TableName + ".");
 
             //Mix string
             string strMix = "";
 
             //Add Mixs
-            foreach (AnalysisMix mix in analysisResult.MappingFormImpl.Mixs)
+            foreach (AnalysisMix mix in analysisResult.MixFormImpl.Mixs)
             {
-                strMix = analysisResult.MappingFormImpl.InTable.TableName + "-"
+                strMix = analysisResult.MixFormImpl.InTable.TableName + "-"
                         + mix.TargetField.FieldName + " = ";
                 //First item indicator
                 bool firstItem;
@@ -148,28 +148,32 @@ namespace Liq_UI.Translation
                         {
                             //Multiple Operator
                             if (element.Operator == AnalysisOperator.Multiple)
-                                strMix += analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                                strMix += analysisResult.MixFormImpl.InTable.TableName + "-" + element.Field.FieldName;
                             //Divide Operator
                             else if(element.Operator == AnalysisOperator.Divide)
-                                strMix += "1 / " + analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                                strMix += "1 / " + analysisResult.MixFormImpl.InTable.TableName + "-" + element.Field.FieldName;
                         }
                         else
                         {
                             //Multiple Operator
                             if (element.Operator == AnalysisOperator.Multiple)
-                                strMix += " * " + analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                                strMix += " * " + analysisResult.MixFormImpl.InTable.TableName + "-" + element.Field.FieldName;
                             //Divide Operator
                             else if (element.Operator == AnalysisOperator.Divide)
-                                strMix += " / " + analysisResult.MappingFormImpl.InTable.TableName + "-" + element.Field.FieldName;
+                                strMix += " / " + analysisResult.MixFormImpl.InTable.TableName + "-" + element.Field.FieldName;
                         }
                         firstElement = false;
                     }
                     firstItem = false;
                 }
+
+                strMix += ".";
+
+                segmentMapping.CodeLines.Add(strMix);
             }
 
             //MODIFY T_TAB.
-            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.MappingFormImpl.InTable.TableName + ".");
+            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.MixFormImpl.InTable.TableName + ".");
 
 
             //ENDLOOP.
@@ -193,6 +197,18 @@ namespace Liq_UI.Translation
             segmentSplitter.CodeLines.Add("*&---------------------------------------------------------------------*");
             segmentSplitter.CodeLines.Add("FORM " + analysisResult.SplitterFormImpl.FormName + " .");
             segmentSplitter.CodeLines.Add("");
+
+            //LOOP AT T_TAB.
+            segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
+
+            //Mix string
+            string strSplitter = "";
+
+            //MODIFY T_TAB.
+            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
+            
+            //ENDLOOP.
+            segmentMapping.CodeLines.Add("ENDLOOP.");
 
             segmentSplitter.CodeLines.Add("ENDFORM                    \" " + analysisResult.SplitterFormImpl.FormName);
 
