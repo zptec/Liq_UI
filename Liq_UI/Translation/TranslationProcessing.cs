@@ -197,9 +197,38 @@ namespace Liq_UI.Translation
             segmentSplitter.CodeLines.Add("FORM " + analysisResult.SplitterFormImpl.FormName + " .");
             segmentSplitter.CodeLines.Add("");
 
+            //==================================================
+            //  ABAP BELOW
+            //==================================================
+            //Data L_FIELD1_SUM LIKE I_TAB-FIELD1.
+            //Data L_FIELD2_SUM LIKE I_TAB-FIELD2.
+            //Data L_FIELD3_SUM LIKE I_TAB-FIELD3.
+            //DATA L_SUM_INIT TYPE C.
+            //CLEAR: L_FIELD1_SUM,
+            //       L_FIELD2_SUM,
+            //       L_FIELD3_SUM.
+            //  L_SUM_INIT = 'X'.
+            //LOOP AT I_TAB.
+            //  IF L_FIELD1_SUM NE I_TAB-FIELD1
+            //      OR L_FIELD2_SUM NE I_TAB-FIELD2
+            //      OR L_FIELD3_SUM NE I_TAB-FIELD3 .
+            //      MOVE I_TAB-FIELD1 TO L_FIELD1_SUM .
+            //      MOVE I_TAB-FIELD2 TO L_FIELD2_SUM .
+            //      MOVE I_TAB-FIELD3 TO L_FIELD3_SUM .
+            //          IF L_SUM_INIT NE 'X'.
+            //              APPEND I_TAB TO T_ALV.
+            //          ENDIF.
+            //  ENDIF.
+            //  APPEND I_TAB TO T_ALV.
+            //  CLEAR L_SUM_INIT.
+            //ENDLOOP.
+            //===================================================
+            //  ABAP ABOVE
+            //===================================================
             //Define splitter Fields
             foreach (AnalysisField splitterField in analysisResult.SplitterFormImpl.Splitters)
             {
+                //
 
             }
 
@@ -210,6 +239,9 @@ namespace Liq_UI.Translation
             string strSplitter = "";
 
             //
+
+
+
 
 
             //MODIFY T_TAB.
