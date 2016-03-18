@@ -219,13 +219,25 @@ namespace Liq_UI.Translation
             //      MOVE I_TAB-FIELD2 TO L_FIELD2_SUM .
             //      MOVE I_TAB-FIELD3 TO L_FIELD3_SUM .
             //          IF L_SUM_INIT NE 'X'.
+            //              MOVE L_FIELD1_SUM TO LW_LAST_TAB-FIELD1.
+            //              MOVE L_FIELD2_SUM TO LW_LAST_TAB-FIELD2.
+            //              MOVE L_FIELD3_SUM TO LW_LAST_TAB-FIELD3.
+            //              CLEAR: LW_LAST_TAB-FIELD4,
+            //                     LW_LAST_TAB-FIELD5,
+            //                     LW_LAST_TAB-FIELD6.
             //              APPEND LW_LAST_TAB TO T_ALV.
+            //              CLEAR: L_FIELD1_SUM,
+            //              CLEAR: L_FIELD2_SUM,
+            //              CLEAR: L_FIELD3_SUM.
             //          ENDIF.
             //  ENDIF.
             //  APPEND I_TAB TO T_ALV.
             //  CLEAR L_SUM_INIT.
             //  CLEAR LW_LAST_TAB.
             //  MOVE CORRESPONDING I_TAB TO LW_LAST_TAB .
+            //  ADD LW_LAST_TAB-FIELD1 TO L_FIELD1_SUM.
+            //  ADD LW_LAST_TAB-FIELD2 TO L_FIELD2_SUM.
+            //  ADD LW_LAST_TAB-FIELD3 TO L_FIELD3_SUM.
             //ENDLOOP.
             //
             //APPEND LW_LAST_TAB TO T_ALV.
