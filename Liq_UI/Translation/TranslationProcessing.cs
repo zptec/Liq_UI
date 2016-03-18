@@ -249,7 +249,7 @@ namespace Liq_UI.Translation
             //===================================================
 
             //Define DATA LW_LAST_TAB LIKE I_TAB.
-            segmentMapping.CodeLines.Add("\tDATA LW_LAST_TAB LIKE I_TAB.");
+            segmentMapping.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + " LIKE " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
 
             //Define splitter Fields
             foreach (AnalysisField splitterField in analysisResult.SplitterFormImpl.Splitters)
