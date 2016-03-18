@@ -225,6 +225,8 @@ namespace Liq_UI.Translation
             //              CLEAR: LW_LAST_TAB-FIELD4,
             //                     LW_LAST_TAB-FIELD5,
             //                     LW_LAST_TAB-FIELD6.
+            //              MOVE 'TOTAL:' TO LW_LAST_TAB-FIELD7.
+            //              LW_LAST_TAB-FIELD8 = LW_LAST_TAB-FIELD9 * LW_LAST_TAB-FIELD10.
             //              APPEND LW_LAST_TAB TO T_ALV.
             //              CLEAR: L_FIELD1_SUM,
             //              CLEAR: L_FIELD2_SUM,
@@ -246,11 +248,14 @@ namespace Liq_UI.Translation
             //  ABAP ABOVE
             //===================================================
 
+            //Define DATA LW_LAST_TAB LIKE I_TAB.
+            segmentMapping.CodeLines.Add("\tDATA LW_LAST_TAB LIKE I_TAB.");
+
             //Define splitter Fields
             foreach (AnalysisField splitterField in analysisResult.SplitterFormImpl.Splitters)
             {
                 //
-
+                
             }
 
             //LOOP AT T_TAB.
