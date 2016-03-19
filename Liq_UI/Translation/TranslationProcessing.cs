@@ -108,7 +108,7 @@ namespace Liq_UI.Translation
             segmentMix.CodeLines.Add("");
 
             //LOOP AT T_TAB.
-            segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.MixFormImpl.InTable.TableName + ".");
+            segmentMix.CodeLines.Add("LOOP AT " + analysisResult.MixFormImpl.InTable.TableName + ".");
 
             //Mix string
             string strMix = "";
@@ -169,14 +169,14 @@ namespace Liq_UI.Translation
 
                 strMix += ".";
 
-                segmentMapping.CodeLines.Add(strMix);
+                segmentMix.CodeLines.Add(strMix);
             }
 
             //MODIFY T_TAB.
-            segmentMapping.CodeLines.Add("\tMODIFY " + analysisResult.MixFormImpl.InTable.TableName + ".");
+            segmentMix.CodeLines.Add("\tMODIFY " + analysisResult.MixFormImpl.InTable.TableName + ".");
 
             //ENDLOOP.
-            segmentMapping.CodeLines.Add("ENDLOOP.");
+            segmentMix.CodeLines.Add("ENDLOOP.");
 
             segmentMix.CodeLines.Add("ENDFORM                    \" " + analysisResult.MixFormImpl.FormName);
 
@@ -249,25 +249,25 @@ namespace Liq_UI.Translation
             //===================================================
 
             //Define DATA LW_LAST_TAB LIKE I_TAB.
-            segmentMapping.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName 
+            segmentSplitter.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName 
                 + " LIKE " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
 
             //Define splitter Fields
             foreach (AnalysisField splitterField in analysisResult.SplitterFormImpl.Splitters)
             {
                 //Data L_FIELD1_SUM LIKE I_TAB-FIELD1.
-                segmentMapping.CodeLines.Add("\tDATA " + splitterField.FieldName + " LIKE "
+                segmentSplitter.CodeLines.Add("\tDATA " + splitterField.FieldName + " LIKE "
                     + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                     + splitterField.RefField + ".");
             }
 
             //Define L_SUM_INIT TYPE C.
-            segmentMapping.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.SUM_INIT_FLAG.FieldName 
+            segmentSplitter.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.SUM_INIT_FLAG.FieldName 
                 + " TYPE C.");
 
 
             //CLEAR LW_LAST_TAB LIKE I_TAB.
-            segmentMapping.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName
+            segmentSplitter.CodeLines.Add("\tDATA " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName
                 + " LIKE " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
 
             //CLEAR splitter Fields
@@ -278,33 +278,33 @@ namespace Liq_UI.Translation
                 //Data L_FIELD1_SUM LIKE I_TAB-FIELD1.
                 //First Line
                 if (i == 0)
-                    segmentMapping.CodeLines.Add("\tCLEAR:\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
+                    segmentSplitter.CodeLines.Add("\tCLEAR:\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField + ",");
                 //Last Line
                 else if (i == analysisResult.SplitterFormImpl.Splitters.Count - 1)
-                    segmentMapping.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
+                    segmentSplitter.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField + ".");
                 //Other Lines
                 else
-                    segmentMapping.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
+                    segmentSplitter.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField + ",");
                 firstSplitterClear = false;
             }
 
             //MOVE 'X' TO L_SUM_INIT.
-            segmentMapping.CodeLines.Add("\tMOVE 'X' TO " + analysisResult.SplitterFormImpl.SUM_INIT_FLAG.FieldName + ".");
+            segmentSplitter.CodeLines.Add("\tMOVE 'X' TO " + analysisResult.SplitterFormImpl.SUM_INIT_FLAG.FieldName + ".");
 
             //LOOP AT T_TAB.
-            segmentMapping.CodeLines.Add("LOOP AT " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
+            segmentSplitter.CodeLines.Add("LOOP AT " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
 
             //Mix string
             string strSplitter = "";
 
             //"At New Field
-            segmentMapping.CodeLines.Add("\t\"At New Field");
+            segmentSplitter.CodeLines.Add("\t\"At New Field");
 
             //IF L_FIELD1_SUM NE I_TAB-FIELD1
             //  OR L_FIELD2_SUM NE I_TAB-FIELD2
@@ -313,27 +313,38 @@ namespace Liq_UI.Translation
             {
                 //First Line
                 if (i == 0)
-                    segmentMapping.CodeLines.Add("\tIF " + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " NE "
+                    segmentSplitter.CodeLines.Add("\tIF " + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " NE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField);
                 //Last Line
                 else if (i == analysisResult.SplitterFormImpl.Splitters.Count - 1)
-                    segmentMapping.CodeLines.Add("\t\tOR " + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " NE "
+                    segmentSplitter.CodeLines.Add("\t\tOR " + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " NE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField);
                 //Other Lines
                 else
-                    segmentMapping.CodeLines.Add("\t\tOR " + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " NE "
+                    segmentSplitter.CodeLines.Add("\t\tOR " + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " NE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField + ".");
             }
 
+            //      MOVE I_TAB-FIELD1 TO L_FIELD1_SUM .
+            //      MOVE I_TAB-FIELD2 TO L_FIELD2_SUM .
+            //      MOVE I_TAB-FIELD3 TO L_FIELD3_SUM .
+            foreach (AnalysisField FilterAccumulate in analysisResult.SplitterFormImpl.Splitters)
+            {
+                segmentSplitter.CodeLines.Add("\t\tMOVE " + analysisResult.SplitterFormImpl.InTable.TableName + "-"
+                    + FilterAccumulate.RefField + " TO " +
+                    FilterAccumulate.FieldName + ".");
+            }
+            //          IF L_SUM_INIT NE 'X'.
+
             //MODIFY T_TAB.
-            segmentMapping.CodeLines.Add("\tAPPEND " + analysisResult.SplitterFormImpl.InTable.TableName +
+            segmentSplitter.CodeLines.Add("\tAPPEND " + analysisResult.SplitterFormImpl.InTable.TableName +
                 " TO " + analysisResult.SplitterFormImpl.ALVTable.TableName + ".");
             
             //ENDLOOP.
-            segmentMapping.CodeLines.Add("ENDLOOP.");
+            segmentSplitter.CodeLines.Add("ENDLOOP.");
 
             segmentSplitter.CodeLines.Add("ENDFORM                    \" " + analysisResult.SplitterFormImpl.FormName);
 
