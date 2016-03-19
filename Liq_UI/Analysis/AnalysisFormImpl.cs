@@ -60,5 +60,10 @@ namespace Liq_UI.Analysis
         /// Splitter List
         /// </summary>
         public List<AnalysisField> Splitters { get; internal set; }
+
+        /// <summary>
+        /// SUM init flag field
+        /// </summary>
+        public AnalysisField SUM_INIT_FLAG { get; internal set; }
     }
 }
