@@ -271,8 +271,6 @@ namespace Liq_UI.Translation
                 + " LIKE " + analysisResult.SplitterFormImpl.InTable.TableName + ".");
 
             //CLEAR splitter Fields
-            bool firstSplitterClear;
-            firstSplitterClear = true;
             for (int i = 0; i < analysisResult.SplitterFormImpl.Splitters.Count; i++)
             {
                 //Data L_FIELD1_SUM LIKE I_TAB-FIELD1.
@@ -291,7 +289,6 @@ namespace Liq_UI.Translation
                     segmentSplitter.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.Splitters[i].FieldName + " LIKE "
                         + analysisResult.SplitterFormImpl.InTable.TableName + "-"
                         + analysisResult.SplitterFormImpl.Splitters[i].RefField + ",");
-                firstSplitterClear = false;
             }
 
             //MOVE 'X' TO L_SUM_INIT.
@@ -337,15 +334,158 @@ namespace Liq_UI.Translation
                     + FilterAccumulate.RefField + " TO " +
                     FilterAccumulate.FieldName + ".");
             }
-            //          IF L_SUM_INIT NE 'X'.
 
-            //MODIFY T_TAB.
-            segmentSplitter.CodeLines.Add("\tAPPEND " + analysisResult.SplitterFormImpl.InTable.TableName +
-                " TO " + analysisResult.SplitterFormImpl.ALVTable.TableName + ".");
+            //          IF L_SUM_INIT NE 'X'.
+            segmentSplitter.CodeLines.Add("\t\tIF " + analysisResult.SplitterFormImpl.SUM_INIT_FLAG.FieldName
+                + " NE 'X'.");
             
+            //              MOVE L_FIELD1_SUM TO LW_LAST_TAB-FIELD1.
+            //              MOVE L_FIELD2_SUM TO LW_LAST_TAB-FIELD2.
+            //              MOVE L_FIELD3_SUM TO LW_LAST_TAB-FIELD3.
+            foreach (AnalysisField FilterAccumulate in analysisResult.SplitterFormImpl.Splitters)
+            {
+                segmentSplitter.CodeLines.Add("\t\t\tMOVE " + FilterAccumulate.FieldName + " TO " 
+                    + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                    + FilterAccumulate.RefField + 
+                    ".");
+            }
+            
+            //              CLEAR: LW_LAST_TAB-FIELD4,
+            //                     LW_LAST_TAB-FIELD5,
+            //                     LW_LAST_TAB-FIELD6.
+            for (int i = 0; i < analysisResult.SplitterFormImpl.SplitterClears.Count; i++)
+            {
+                //Data L_FIELD1_SUM LIKE I_TAB-FIELD1.
+                //First Line
+                if (i == 0)
+                    segmentSplitter.CodeLines.Add("\tCLEAR:\t" + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                    + analysisResult.SplitterFormImpl.SplitterClears[i].FieldName + ",");
+                //Last Line
+                else if (i == analysisResult.SplitterFormImpl.Splitters.Count - 1)
+                    segmentSplitter.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                    + analysisResult.SplitterFormImpl.SplitterClears[i].FieldName + ".");
+                //Other Lines
+                else
+                    segmentSplitter.CodeLines.Add("\t\t" + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                    + analysisResult.SplitterFormImpl.SplitterClears[i].FieldName + ",");
+            }
+
+            //              MOVE 'TOTAL:' TO LW_LAST_TAB-FIELD7.
+            foreach (AnalysisField FilterTotalText in analysisResult.SplitterFormImpl.SplitFixLines)
+            {
+                segmentSplitter.CodeLines.Add("\tMOVE " + FilterTotalText.FieldDesc  + " TO " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                    + FilterTotalText.FieldName + ".");
+            }
+
+            //              LW_LAST_TAB-FIELD8 = LW_LAST_TAB-FIELD9 * LW_LAST_TAB-FIELD10.
+            foreach (AnalysisMix mix in analysisResult.SplitterFormImpl.Mixs)
+            {
+                strMix = analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                        + mix.TargetField.FieldName + " = ";
+                //First item indicator
+                bool firstItem;
+                firstItem = true;
+                //Add items
+                foreach (AnalysisItem item in mix.Items)
+                {
+                    // "+/-" between items
+                    if (!firstItem)
+                    {
+                        if (item.Cons >= 0)
+                            strMix += " + ";
+                        else
+                            strMix += " - ";
+                    }
+                    //First element indicator
+                    bool firstElement;
+                    firstElement = true;
+                    if (item.Cons != 1)
+                    {
+                        //Constanse Parameter
+                        strMix += "\"" + item.Cons + "\"";
+                        firstElement = false;
+                    }
+                    //Add elements
+                    foreach (AnalysisElement element in item.Elements)
+                    {
+                        if (firstElement)
+                        {
+                            //Multiple Operator
+                            if (element.Operator == AnalysisOperator.Multiple)
+                                strMix += analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-" + element.Field.FieldName;
+                            //Divide Operator
+                            else if (element.Operator == AnalysisOperator.Divide)
+                                strMix += "1 / " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-" + element.Field.FieldName;
+                        }
+                        else
+                        {
+                            //Multiple Operator
+                            if (element.Operator == AnalysisOperator.Multiple)
+                                strMix += " * " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-" + element.Field.FieldName;
+                            //Divide Operator
+                            else if (element.Operator == AnalysisOperator.Divide)
+                                strMix += " / " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-" + element.Field.FieldName;
+                        }
+                        firstElement = false;
+                    }
+                    firstItem = false;
+                }
+
+                strMix += ".";
+
+                segmentSplitter.CodeLines.Add(strMix);
+            }
+
+            //              APPEND LW_LAST_TAB TO T_ALV.
+            segmentSplitter.CodeLines.Add("\t\t\tAPPEND " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName
+                + " TO " + analysisResult.SplitterFormImpl.ALVTable.TableName + ".");
+
+            //              CLEAR: L_FIELD1_SUM,
+            //              CLEAR: L_FIELD2_SUM,
+            //              CLEAR: L_FIELD3_SUM.
+            foreach (AnalysisField FilterAccumulate in analysisResult.SplitterFormImpl.Splitters)
+            {
+                segmentSplitter.CodeLines.Add("\t\t\tCLEAR " + FilterAccumulate.FieldName + ".");
+            }
+
+
+            //          ENDIF.
+            //  ENDIF.
+            segmentSplitter.CodeLines.Add("\t\tENDIF.");
+            segmentSplitter.CodeLines.Add("\tENDIF.");
+
+            //  APPEND I_TAB TO T_ALV.
+            //  CLEAR L_SUM_INIT.
+            //  CLEAR LW_LAST_TAB.
+            segmentSplitter.CodeLines.Add("\tAPPEND " + analysisResult.SplitterFormImpl.InTable.TableName 
+                + " TO " + analysisResult.SplitterFormImpl.ALVTable.TableName + ".");
+            segmentSplitter.CodeLines.Add("CLEAR " + analysisResult.SplitterFormImpl.SUM_INIT_FLAG.FieldName + ".");
+            segmentSplitter.CodeLines.Add("CLEAR " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + ".");
+
+            //  MOVE CORRESPONDING I_TAB TO LW_LAST_TAB .
+            segmentSplitter.CodeLines.Add("\tMOVE CORRESPONDING " + analysisResult.SplitterFormImpl.InTable.TableName
+                + " TO " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + ".");
+
+            //  ADD LW_LAST_TAB-FIELD1 TO L_FIELD1_SUM.
+            //  ADD LW_LAST_TAB-FIELD2 TO L_FIELD2_SUM.
+            //  ADD LW_LAST_TAB-FIELD3 TO L_FIELD3_SUM.
+            foreach (AnalysisField FilterAccumulate in analysisResult.SplitterFormImpl.Splitters)
+            {
+                segmentSplitter.CodeLines.Add("\tADD " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName + "-"
+                    + FilterAccumulate.RefField + " TO "
+                    + FilterAccumulate.FieldName
+                    + ".");
+            }
+
             //ENDLOOP.
             segmentSplitter.CodeLines.Add("ENDLOOP.");
 
+            // //
+            //APPEND LW_LAST_TAB TO T_ALV.
+            segmentSplitter.CodeLines.Add("");
+            segmentSplitter.CodeLines.Add("APPEND " + analysisResult.SplitterFormImpl.LastInWorkArea.TableName
+                + " TO " + analysisResult.SplitterFormImpl.ALVTable.TableName + ".");
+            
             segmentSplitter.CodeLines.Add("ENDFORM                    \" " + analysisResult.SplitterFormImpl.FormName);
 
             segments.Add(segmentSplitter);

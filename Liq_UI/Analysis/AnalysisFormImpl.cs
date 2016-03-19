@@ -55,7 +55,17 @@ namespace Liq_UI.Analysis
         /// Read Mapping List
         /// </summary>
         public List<AnalysisReadMapping> ReadMapping { get; internal set; }
-        
+
+        /// <summary>
+        /// Split Fix Lines
+        /// </summary>
+        public IEnumerable<AnalysisField> SplitFixLines { get; internal set; }
+
+        /// <summary>
+        /// Splitter Clear Field List
+        /// </summary>
+        public List<AnalysisField> SplitterClears { get; internal set; }
+
         /// <summary>
         /// Splitter List
         /// </summary>
