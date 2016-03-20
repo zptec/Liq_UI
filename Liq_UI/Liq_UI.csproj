@@ -92,7 +92,7 @@
     <Compile Include="Trainning\TrainningStatus.cs" />
     <Compile Include="Analysis\AnalysisWorkArea.cs" />
     <Compile Include="Analysis\AnalysisVariable.cs" />
-    <Compile Include="Translation\AnalysisFormCall.cs" />
+    <Compile Include="Analysis\AnalysisFormCall.cs" />
     <Compile Include="Translation\TranslationALV.cs" />
     <Compile Include="Translation\TranslationBase.cs" />
     <Compile Include="Translation\TranslationCode.cs" />
