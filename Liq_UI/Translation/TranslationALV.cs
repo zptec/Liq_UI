@@ -13,7 +13,15 @@ namespace Liq_UI.Translation
 
         internal List<TranslationSegment> GenerateCode()
         {
-            return new List<TranslationSegment>();
+            List<TranslationSegment> segments = new List<TranslationSegment>();
+
+            //Add Mapping Form
+            TranslationSegment segmentALVCALL = new TranslationSegment("ALV_CALL", TranslationSegmentType.DBFetching);
+
+            segments.Add(segmentALVCALL);
+
+            return segments;
+
         }
     }
 }
