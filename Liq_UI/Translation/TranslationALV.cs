@@ -29,12 +29,18 @@ namespace Liq_UI.Translation
             segmentALVCALL.CodeLines.Add("\tIS_LAYOUT-COLWIDTH_OPTIMIZE = 'X'.");
             segmentALVCALL.CodeLines.Add("\tPERFORM APPEND_FIELDCAT USING:");
             //Add Fieldcatlogs
-            for(int i; i < )
-            segmentALVCALL.CodeLines.Add("");
+            for (int i = 0; i < analysisResult.OutputFields.Count; i++)
+            {
+                //Add catlog items
+                for(int j=0; j < analysisResult.OutputFields[i].CatlogPropertys.Count; j++)
+                {
+
+                }
+                segmentALVCALL.CodeLines.Add("");
+            }
             segments.Add(segmentALVCALL);
 
             return segments;
-
         }
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Analysis\AnalysisCondition.cs" />
     <Compile Include="Analysis\AnalysisElement.cs" />
     <Compile Include="Analysis\AnalysisField.cs" />
+    <Compile Include="Analysis\AnalysisFieldCatlog.cs" />
     <Compile Include="Analysis\AnalysisFieldMapping.cs" />
     <Compile Include="Analysis\AnalysisFixMapping.cs" />
     <Compile Include="Analysis\AnalysisFormImpl.cs" />
