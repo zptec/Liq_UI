@@ -3,6 +3,11 @@
     public class AnalysisFieldCatlog
     {
         /// <summary>
+        /// Field catlog property name
+        /// </summary>
+        public string CatlogName { get; internal set; }
+
+        /// <summary>
         /// Field catlog property value
         /// </summary>
         public string CatlogValue { get; internal set; }

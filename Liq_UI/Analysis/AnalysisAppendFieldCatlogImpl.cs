@@ -1,7 +1,14 @@
-﻿namespace Liq_UI.Analysis
+﻿using System.Collections.Generic;
+
+namespace Liq_UI.Analysis
 {
     public class AnalysisAppendFieldCatlogImpl
     {
+        /// <summary>
+        /// Catlog Property List
+        /// </summary>
+        public List<AnalysisFieldCatlog> CatlogProperties { get; internal set; }
+
         /// <summary>
         /// Form Description
         /// </summary>

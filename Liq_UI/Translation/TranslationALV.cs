@@ -49,9 +49,9 @@ namespace Liq_UI.Translation
                 string strCatlog = "\t\t";
 
                 //Add catlog items
-                for (int j = 0; j < analysisResult.OutputFields[i].CatlogPropertys.Count; j++)
+                for (int j = 0; j < analysisResult.OutputFields[i].CatlogProperties.Count; j++)
                 {
-                    strCatlog += "'" + analysisResult.OutputFields[i].CatlogPropertys[j].CatlogValue + "' ";
+                    strCatlog += "'" + analysisResult.OutputFields[i].CatlogProperties[j].CatlogValue + "' ";
                 }
                 if (i == analysisResult.OutputFields.Count - 1)
                     strCatlog += ".\t\"[" + i.ToString() + "]" + analysisResult.OutputFields[i].FieldDesc;
@@ -89,7 +89,31 @@ namespace Liq_UI.Translation
             segmentALVCALL.CodeLines.Add("*  -->  p1        text");
             segmentALVCALL.CodeLines.Add("*  <--  p2        text");
             segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("FORM " + analysisResult.AppendFieldCatlogImpl.FormName + " .");
+            
+            //Add Form USING Parameters
+            for (int i = 0; i < analysisResult.AppendFieldCatlogImpl.CatlogProperties.Count; i++)
+            {
+                //First Line
+                if(i == 0)
+                    segmentALVCALL.CodeLines.Add("FORM " 
+                        + analysisResult.AppendFieldCatlogImpl.FormName 
+                        + " USING VALUE(" + analysisResult.AppendFieldCatlogImpl.CatlogProperties[i].CatlogName
+                        + ")");
+                //Last Line
+                else if (i == analysisResult.AppendFieldCatlogImpl.CatlogProperties.Count - 1)
+                    segmentALVCALL.CodeLines.Add("\t\t\t"
+                        + analysisResult.AppendFieldCatlogImpl.FormName
+                        + " USING VALUE(" + analysisResult.AppendFieldCatlogImpl.CatlogProperties[i].CatlogName
+                        + ").");
+                //Center Line
+                else
+                    segmentALVCALL.CodeLines.Add("\t\t\t"
+                        + analysisResult.AppendFieldCatlogImpl.FormName
+                        + " USING VALUE(" + analysisResult.AppendFieldCatlogImpl.CatlogProperties[i].CatlogName
+                        + ")");
+            }
+
+            //
             segmentALVCALL.CodeLines.Add("");
 
             return segments;

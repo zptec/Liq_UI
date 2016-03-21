@@ -8,7 +8,10 @@ namespace Liq_UI.Analysis
 {
     class AnalysisField
     {
-        public List<AnalysisFieldCatlog> CatlogPropertys { get; internal set; }
+        /// <summary>
+        /// Catlog Property List
+        /// </summary>
+        public List<AnalysisFieldCatlog> CatlogProperties { get; internal set; }
 
         //Field Description
         public string FieldDesc { get; internal set; }
