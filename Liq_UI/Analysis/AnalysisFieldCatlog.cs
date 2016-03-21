@@ -2,5 +2,6 @@
 {
     public class AnalysisFieldCatlog
     {
+        public string CatlogValue { get; internal set; }
     }
 }

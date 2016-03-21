@@ -9,16 +9,60 @@ namespace Liq_UI.Analysis
 {
     class AnalysisBase
     {
+        /// <summary>
+        /// ALV Output Fields
+        /// </summary>
         public List<AnalysisField> OutputFields { get; internal set; }
+
+        /// <summary>
+        /// Tables
+        /// </summary>
         public List<AnalysisTable> Tables { get; internal set; }
+
+        /// <summary>
+        /// Auxi Tables
+        /// </summary>
         public List<AnalysisTable> AuxiTables { get; internal set; }
-        public IEnumerable<AnalysisWorkArea> WorkArea { get; internal set; }
-        public IEnumerable<AnalysisVariable> Variable { get; internal set; }
-        public IEnumerable<AnalysisFormCall> FormCalls { get; internal set; }
-        public IEnumerable<AnalysisFormImpl> FormImpl { get; internal set; }
+
+        /// <summary>
+        /// Work areas
+        /// </summary>
+        public List<AnalysisWorkArea> WorkArea { get; internal set; }
+
+        /// <summary>
+        /// Variables
+        /// </summary>
+        public List<AnalysisVariable> Variable { get; internal set; }
+
+        /// <summary>
+        /// Form Call List
+        /// </summary>
+        public List<AnalysisFormCall> FormCalls { get; internal set; }
+
+        /// <summary>
+        /// Form Implementation List
+        /// </summary>
+        public List<AnalysisFormImpl> FormImpl { get; internal set; }
+
+        /// <summary>
+        /// Mapping Form Implementation
+        /// </summary>
         public AnalysisFormImpl MappingFormImpl { get; internal set; }
+
+        /// <summary>
+        /// Mix Form Implementation
+        /// </summary>
         public AnalysisFormImpl MixFormImpl { get; internal set; }
+
+        /// <summary>
+        /// Splitter Form Implementation
+        /// </summary>
         public AnalysisFormImpl SplitterFormImpl { get; internal set; }
+
+        /// <summary>
+        /// ALV Form Implementation
+        /// </summary>
+        public AnalysisALVFormImpl ALVFormImpl { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )
