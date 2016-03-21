@@ -60,7 +60,7 @@ namespace Liq_UI.Translation
 
                 segmentFieldcatlog.CodeLines.Add(strCatlog);
             }
-            segmentFieldcatlog.CodeLines.Add("ENDFORM                    \" " + analysisResult.AppendFieldCatlogImpl.FormName);
+            segmentFieldcatlog.CodeLines.Add("ENDFORM                    \" " + analysisResult.ALVSpecImpl.FormName);
             
             segments.Add(segmentFieldcatlog);
 
@@ -113,8 +113,25 @@ namespace Liq_UI.Translation
                         + ")");
             }
 
-            //
-            segmentALVCALL.CodeLines.Add("");
+            //Add Field catlog assign statement
+            foreach (AnalysisFieldCatlog FieldcatProp in analysisResult.AppendFieldCatlogImpl.CatlogProperties)
+            {
+                string strCatlogPropAssign = "\t";
+                foreach (AnalysisField PropTargetField in FieldcatProp.Targets)
+                {
+                    strCatlogPropAssign += "IT_FIELDCAT-" + PropTargetField.FieldName + " = "; 
+                }
+                strCatlogPropAssign += FieldcatProp.CatlogName;
+            }
+
+            //  APPEND IT_FIELDCAT.
+            segmentALVCALL.CodeLines.Add("\tAPPEND IT_FIELDCAT.");
+
+            //  CLEAR IT_FIELDCAT.
+            segmentALVCALL.CodeLines.Add("\tCLEAR IT_FIELDCAT.");
+
+            //ENDFORM
+            segmentALVCALL.CodeLines.Add("ENDFORM                    \" " + analysisResult.AppendFieldCatlogImpl.FormName);
 
             return segments;
         }
