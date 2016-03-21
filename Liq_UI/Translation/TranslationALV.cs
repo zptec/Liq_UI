@@ -78,36 +78,36 @@ namespace Liq_UI.Translation
             segments.Add(segmentALVFieldComments);
 
             //Add Fieldcatlog APPEND_FIELDCAT Form
-            TranslationSegment segmentALVCALL = new TranslationSegment("ALV_CALL", TranslationSegmentType.ALV);
+            TranslationSegment segmentAppendCatlog = new TranslationSegment("ALV_APPEND_CATLOG", TranslationSegmentType.ALV);
 
             //Add Form Header
-            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("*&      Form  " + analysisResult.AppendFieldCatlogImpl.FormName);
-            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("*       " + analysisResult.AppendFieldCatlogImpl.FormDesc);
-            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("*  -->  p1        text");
-            segmentALVCALL.CodeLines.Add("*  <--  p2        text");
-            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentAppendCatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentAppendCatlog.CodeLines.Add("*&      Form  " + analysisResult.AppendFieldCatlogImpl.FormName);
+            segmentAppendCatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentAppendCatlog.CodeLines.Add("*       " + analysisResult.AppendFieldCatlogImpl.FormDesc);
+            segmentAppendCatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentAppendCatlog.CodeLines.Add("*  -->  p1        text");
+            segmentAppendCatlog.CodeLines.Add("*  <--  p2        text");
+            segmentAppendCatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
             
             //Add Form USING Parameters
             for (int i = 0; i < analysisResult.AppendFieldCatlogImpl.CatlogProperties.Count; i++)
             {
                 //First Line
                 if(i == 0)
-                    segmentALVCALL.CodeLines.Add("FORM " 
+                    segmentAppendCatlog.CodeLines.Add("FORM " 
                         + analysisResult.AppendFieldCatlogImpl.FormName 
                         + " USING VALUE(" + analysisResult.AppendFieldCatlogImpl.CatlogProperties[i].CatlogName
                         + ")");
                 //Last Line
                 else if (i == analysisResult.AppendFieldCatlogImpl.CatlogProperties.Count - 1)
-                    segmentALVCALL.CodeLines.Add("\t\t\t"
+                    segmentAppendCatlog.CodeLines.Add("\t\t\t"
                         + analysisResult.AppendFieldCatlogImpl.FormName
                         + " USING VALUE(" + analysisResult.AppendFieldCatlogImpl.CatlogProperties[i].CatlogName
                         + ").");
                 //Center Line
                 else
-                    segmentALVCALL.CodeLines.Add("\t\t\t"
+                    segmentAppendCatlog.CodeLines.Add("\t\t\t"
                         + analysisResult.AppendFieldCatlogImpl.FormName
                         + " USING VALUE(" + analysisResult.AppendFieldCatlogImpl.CatlogProperties[i].CatlogName
                         + ")");
@@ -125,13 +125,42 @@ namespace Liq_UI.Translation
             }
 
             //  APPEND IT_FIELDCAT.
-            segmentALVCALL.CodeLines.Add("\tAPPEND IT_FIELDCAT.");
+            segmentAppendCatlog.CodeLines.Add("\tAPPEND IT_FIELDCAT.");
 
             //  CLEAR IT_FIELDCAT.
-            segmentALVCALL.CodeLines.Add("\tCLEAR IT_FIELDCAT.");
+            segmentAppendCatlog.CodeLines.Add("\tCLEAR IT_FIELDCAT.");
 
             //ENDFORM
-            segmentALVCALL.CodeLines.Add("ENDFORM                    \" " + analysisResult.AppendFieldCatlogImpl.FormName);
+            segmentAppendCatlog.CodeLines.Add("ENDFORM                    \" " + analysisResult.AppendFieldCatlogImpl.FormName);
+
+            //Add Append Fieldcatlog Form segment
+            segments.Add(segmentAppendCatlog);
+
+            //Add Fieldcatlog APPEND_FIELDCAT Form
+            TranslationSegment segmentALVCALL = new TranslationSegment("ALV_CALL", TranslationSegmentType.ALV);
+
+            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentALVCALL.CodeLines.Add("*&      Form  " + analysisResult.ALVCallImpl.FormName);
+            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentALVCALL.CodeLines.Add("*       " + analysisResult.ALVCallImpl.FormDesc);
+            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentALVCALL.CodeLines.Add("*  -->  p1        text");
+            segmentALVCALL.CodeLines.Add("*  <--  p2        text");
+            segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentALVCALL.CodeLines.Add("FORM " + analysisResult.ALVCallImpl.FormName + " .");
+            segmentALVCALL.CodeLines.Add("");
+
+            //  CALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'
+            segmentALVCALL.CodeLines.Add("\tCALL FUNCTION 'REUSE_ALV_GRID_DISPLAY'");
+
+            //    EXPORTING
+            segmentALVCALL.CodeLines.Add("\t\tEXPORTING");
+
+            //*     I_INTERFACE_CHECK                 = ' '
+            segmentALVCALL.CodeLines.Add("*     I_INTERFACE_CHECK                 = ' '");
+
+            //Append ALV CALL Segment
+            segments.Add(segmentALVCALL);
 
             return segments;
         }

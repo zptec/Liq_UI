@@ -65,9 +65,14 @@ namespace Liq_UI.Analysis
         public AnalysisAppendFieldCatlogImpl AppendFieldCatlogImpl { get; internal set; }
 
         /// <summary>
-        /// ALV ALV Spec Form Implementation
+        /// ALV Spec Form Implementation
         /// </summary>
         public AnalysisALVSpecImpl ALVSpecImpl { get; internal set; }
+
+        /// <summary>
+        /// ALV Call Form Implementation
+        /// </summary>
+        public AnalysisALVCallImpl ALVCallImpl { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )
