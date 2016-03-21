@@ -37,7 +37,7 @@ namespace Liq_UI.Translation
             TranslationProcessing ProcessTranslator = new TranslationProcessing(analysisResult);
 
             //Translator for ABAP ALV
-            TranslationALV ALVTranslator = new TranslationALV(this);
+            TranslationALV ALVTranslator = new TranslationALV(analysisResult);
 
             //Generate ABAP data heading
             FinalCode.InsertCode( HeadingTranslator.GenerateCode() );
