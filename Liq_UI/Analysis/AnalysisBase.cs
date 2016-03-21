@@ -60,9 +60,14 @@ namespace Liq_UI.Analysis
         public AnalysisFormImpl SplitterFormImpl { get; internal set; }
 
         /// <summary>
-        /// ALV Form Implementation
+        /// ALV Field Catlog Form Implementation
         /// </summary>
-        public AnalysisALVFormImpl ALVFormImpl { get; internal set; }
+        public AnalysisAppendFieldCatlogImpl AppendFieldCatlogImpl { get; internal set; }
+
+        /// <summary>
+        /// ALV ALV Spec Form Implementation
+        /// </summary>
+        public AnalysisALVSpecImpl ALVSpecImpl { get; internal set; }
 
         //Five Directions:
         //Get North ( Prev Union )

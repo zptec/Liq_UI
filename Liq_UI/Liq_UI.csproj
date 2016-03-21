@@ -55,7 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Analysis\AnalysisALVFormImpl.cs" />
+    <Compile Include="Analysis\AnalysisAppendFieldCatlogImpl.cs" />
+    <Compile Include="Analysis\AnalysisALVSpecImpl.cs" />
     <Compile Include="Analysis\AnalysisBase.cs" />
     <Compile Include="Analysis\AnalysisCase.cs" />
     <Compile Include="Analysis\AnalysisCondition.cs" />

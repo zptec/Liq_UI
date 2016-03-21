@@ -24,39 +24,73 @@ namespace Liq_UI.Translation
         {
             List<TranslationSegment> segments = new List<TranslationSegment>();
 
-            //Add Mapping Form
-            TranslationSegment segmentALVCALL = new TranslationSegment("ALV_CALL", TranslationSegmentType.DBFetching);
+            //Add Fieldcatlog Form
+            TranslationSegment segmentFieldcatlog = new TranslationSegment("ALV_FIELDCATLOG", TranslationSegmentType.ALV);
+
+            //Add Form Header
+            segmentFieldcatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentFieldcatlog.CodeLines.Add("*&      Form  " + analysisResult.ALVSpecImpl.FormName);
+            segmentFieldcatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentFieldcatlog.CodeLines.Add("*       " + analysisResult.ALVSpecImpl.FormDesc);
+            segmentFieldcatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentFieldcatlog.CodeLines.Add("*  -->  p1        text");
+            segmentFieldcatlog.CodeLines.Add("*  <--  p2        text");
+            segmentFieldcatlog.CodeLines.Add("*&---------------------------------------------------------------------*");
+            segmentFieldcatlog.CodeLines.Add("FORM " + analysisResult.ALVSpecImpl.FormName + " .");
+            segmentFieldcatlog.CodeLines.Add("");
+
+            segmentFieldcatlog.CodeLines.Add("\tIS_LAYOUT-COLWIDTH_OPTIMIZE = 'X'.");
+            segmentFieldcatlog.CodeLines.Add("\tPERFORM APPEND_FIELDCAT USING:");
+
+            //Add Fieldcatlogs
+            for (int i = 0; i < analysisResult.OutputFields.Count; i++)
+            {
+                //Add \t\t
+                string strCatlog = "\t\t";
+
+                //Add catlog items
+                for (int j = 0; j < analysisResult.OutputFields[i].CatlogPropertys.Count; j++)
+                {
+                    strCatlog += "'" + analysisResult.OutputFields[i].CatlogPropertys[j].CatlogValue + "' ";
+                }
+                if (i == analysisResult.OutputFields.Count - 1)
+                    strCatlog += ".\t\"[" + i.ToString() + "]" + analysisResult.OutputFields[i].FieldDesc;
+                else
+                    strCatlog += ",\t\"[" + i.ToString() + "]" + analysisResult.OutputFields[i].FieldDesc;
+
+                segmentFieldcatlog.CodeLines.Add(strCatlog);
+            }
+            segmentFieldcatlog.CodeLines.Add("ENDFORM                    \" " + analysisResult.AppendFieldCatlogImpl.FormName);
+            
+            segments.Add(segmentFieldcatlog);
+
+            //Add Fieldcatlog Comments
+            TranslationSegment segmentALVFieldComments = new TranslationSegment("ALV_Field_Comments", TranslationSegmentType.ALV);
+
+            segmentFieldcatlog.CodeLines.Add("************************************************************************");
+            segmentFieldcatlog.CodeLines.Add("*OUTPUT FIELDS");
+            segmentFieldcatlog.CodeLines.Add("************************************************************************");
+            
+            //Add Fieldcatlog comments
+            for (int i = 0; i < analysisResult.OutputFields.Count; i++)
+                segmentFieldcatlog.CodeLines.Add("\"[" + i.ToString() + "]" + analysisResult.OutputFields[i].FieldDesc);
+            
+            segments.Add(segmentALVFieldComments);
+
+            //Add Fieldcatlog APPEND_FIELDCAT Form
+            TranslationSegment segmentALVCALL = new TranslationSegment("ALV_CALL", TranslationSegmentType.ALV);
 
             //Add Form Header
             segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("*&      Form  " + analysisResult.ALVFormImpl.FormName);
+            segmentALVCALL.CodeLines.Add("*&      Form  " + analysisResult.AppendFieldCatlogImpl.FormName);
             segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("*       " + analysisResult.ALVFormImpl.FormDesc);
+            segmentALVCALL.CodeLines.Add("*       " + analysisResult.AppendFieldCatlogImpl.FormDesc);
             segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
             segmentALVCALL.CodeLines.Add("*  -->  p1        text");
             segmentALVCALL.CodeLines.Add("*  <--  p2        text");
             segmentALVCALL.CodeLines.Add("*&---------------------------------------------------------------------*");
-            segmentALVCALL.CodeLines.Add("FORM " + analysisResult.ALVFormImpl.FormName + " .");
+            segmentALVCALL.CodeLines.Add("FORM " + analysisResult.AppendFieldCatlogImpl.FormName + " .");
             segmentALVCALL.CodeLines.Add("");
-
-            segmentALVCALL.CodeLines.Add("\tIS_LAYOUT-COLWIDTH_OPTIMIZE = 'X'.");
-            segmentALVCALL.CodeLines.Add("\tPERFORM APPEND_FIELDCAT USING:");
-            //Add \t\t
-            string strCatlog = "\t\t";
-            //Add Fieldcatlogs
-            for (int i = 0; i < analysisResult.OutputFields.Count; i++)
-            {
-                //Add catlog items
-                for(int j = 0; j < analysisResult.OutputFields[i].CatlogPropertys.Count; j++)
-                {
-                    strCatlog += "'" + analysisResult.OutputFields[i].CatlogPropertys[j].CatlogValue + "' ";
-                }
-                if(i == analysisResult.OutputFields.Count - 1)
-                    strCatlog += ".";
-                else
-                    strCatlog += ",";
-            }
-            segments.Add(segmentALVCALL);
 
             return segments;
         }
