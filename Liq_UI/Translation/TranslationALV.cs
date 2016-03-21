@@ -309,6 +309,8 @@ namespace Liq_UI.Translation
 
             //  ENDIF.
             segmentALVCALL.CodeLines.Add("\tENDIF.");
+            
+            segmentALVCALL.CodeLines.Add("\t");
 
             //ENDFORM
             segmentALVCALL.CodeLines.Add("ENDFORM                    \" " + analysisResult.ALVCallImpl.FormName);
