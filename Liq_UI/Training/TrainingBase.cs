@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Liq_UI.Translation;
+using System.Windows;
 
 namespace Liq_UI.Training
 {
@@ -18,6 +19,16 @@ namespace Liq_UI.Training
 
         //Tranning Result
         List<AnalysisCase> TrainningResult = new List<AnalysisCase>();
+
+        /// <summary>
+        /// Final Code
+        /// </summary>
+        public string FinalCode { get; private set; }
+
+        /// <summary>
+        /// Probability
+        /// </summary>
+        public double Probability { get; private set; }
 
         /// <summary>
         /// Init Training Processer
@@ -42,7 +53,8 @@ namespace Liq_UI.Training
         /// </summary>
         internal void OutputResult()
         {
-            throw new NotImplementedException();
+            //Output Probability and Target Code
+            MessageBox.Show(this.Probability + "%\n" + this.FinalCode);
         }
     }
 }
