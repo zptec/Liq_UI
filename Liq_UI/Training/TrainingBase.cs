@@ -29,6 +29,11 @@ namespace Liq_UI.Training
         /// Probability
         /// </summary>
         public double Probability { get; private set; }
+        
+        /// <summary>
+        /// Traning Set
+        /// </summary>
+        public List<TrainingData> TraningSet { get; private set; }
 
         /// <summary>
         /// Init Training Processer
@@ -54,7 +59,9 @@ namespace Liq_UI.Training
         internal void OutputResult()
         {
             //Output Probability and Target Code
-            MessageBox.Show(this.Probability + "%\n" + this.FinalCode);
+            MessageBox.Show( "Training Set Count = " + this.TraningSet.Count.ToString()
+                + "Probability = " + this.Probability.ToString() 
+                + "%\n" + this.FinalCode);
         }
     }
 }

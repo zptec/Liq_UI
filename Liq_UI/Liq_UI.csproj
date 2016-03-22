@@ -93,6 +93,7 @@
     <Compile Include="Target\TargetStatus.cs" />
     <Compile Include="Target\TargetTable.cs" />
     <Compile Include="Training\TrainingBase.cs" />
+    <Compile Include="Training\TrainingData.cs" />
     <Compile Include="Training\TrainngCase.cs" />
     <Compile Include="Training\TrainingStatus.cs" />
     <Compile Include="Analysis\AnalysisWorkArea.cs" />
