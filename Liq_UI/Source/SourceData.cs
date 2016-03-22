@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,16 @@ namespace Liq_UI.Source
         }
 
         internal SourceData GetSource()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Get Source Data
+        /// </summary>
+        /// <param name="inputData">Input Data Set</param>
+        /// <returns>Source of Input Data</returns>
+        internal static SourceData GetSource(DataSet inputData)
         {
             throw new NotImplementedException();
         }

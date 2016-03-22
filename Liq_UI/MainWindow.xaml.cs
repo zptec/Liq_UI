@@ -72,21 +72,31 @@ namespace Liq_UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //DataTable dt = GetExcelToDataTableBySheet(this.textBox.Text, "KNA1");
-            //Get File Information
+
+            //Init File Processer
             Input_File.Init();
+
+            //Init Training Processer
             Process_Training.Init();
+            
+            //Read each File
             while (Input_File.ReadNextFile())
             {
                 //Get Source Data
                 Input_Source = SourceData.GetSource(Input_File.InputData);
+
                 //Get Target Data
                 Input_Target = TargetData.GetTarget(Input_File.InputData);
+
                 //Get Filter
                 Input_Filter = FilterData.GetFilter(Input_File.InputData);
+
                 //Start Analysis
                 Process_Analysis = AnalysisBase.StartAnalysis(Input_Source, Input_Target, Input_Filter);
-                //Translate To Code
+
+                //Translate analysis result into final code
                 Output_Translation = TranslationBase.Translate2Code(Process_Analysis);
+                
                 //Update Training Data
                 Process_Training.Update(Process_Analysis, Output_Translation);
             }

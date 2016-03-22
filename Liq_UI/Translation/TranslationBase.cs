@@ -18,9 +18,16 @@ namespace Liq_UI.Translation
         //Final Code
         TranslationCode FinalCode = new TranslationCode();
 
-        //Translate to final code
-        int Translate2Code(AnalysisBase analysisResult)
+        /// <summary>
+        /// Translate analysis result into final code
+        /// </summary>
+        /// <param name="analysisResult">Analysis result</param>
+        /// <returns>Final code detail</returns>
+        internal static TranslationBase Translate2Code(AnalysisBase analysisResult)
         {
+            //Translation Base
+            TranslationBase Process_Translate = new TranslationBase();
+
             //Translator for ABAP heading
             TranslationHeading HeadingTranslator = new TranslationHeading(analysisResult);
 
@@ -43,35 +50,30 @@ namespace Liq_UI.Translation
             TranslationALV ALVTranslator = new TranslationALV(analysisResult);
 
             //Generate ABAP data heading
-            FinalCode.InsertCode( HeadingTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( HeadingTranslator.GenerateCode() );
 
             //Generate ABAP data definition
-            FinalCode.InsertCode( DefTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( DefTranslator.GenerateCode() );
 
             //Generate ABAP selection screen
-            FinalCode.InsertCode( SelectionTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( SelectionTranslator.GenerateCode() );
 
             //Generate ABAP DB fetching
-            FinalCode.InsertCode( DBFetchingTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( DBFetchingTranslator.GenerateCode() );
 
             //Generate ABAP table reading
-            FinalCode.InsertCode( ReadingTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( ReadingTranslator.GenerateCode() );
 
             //Generate ABAP internal table processing
-            FinalCode.InsertCode( ProcessTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( ProcessTranslator.GenerateCode() );
 
             //Generate ABAP ALV
-            FinalCode.InsertCode( ALVTranslator.GenerateCode() );
+            Process_Translate.FinalCode.InsertCode( ALVTranslator.GenerateCode() );
 
             //Change global status
-            Status = TranslationStatus.TranslateFinished;
+            Process_Translate.Status = TranslationStatus.TranslateFinished;
 
-            return 1;
-        }
-
-        internal TranslationBase Translate2Code(AnalysisBase analysisBase)
-        {
-            throw new NotImplementedException();
+            return Process_Translate;
         }
     }
 }

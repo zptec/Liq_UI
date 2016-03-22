@@ -69,7 +69,7 @@ namespace Liq_UI.Analysis
         /// <param name="targetData">Target Data</param>
         /// <param name="filterData">Filter Data</param>
         /// <returns>Analysis Result</returns>
-        internal AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
+        internal static AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
         {
             throw new NotImplementedException();
         }
