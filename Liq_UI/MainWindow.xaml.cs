@@ -2,6 +2,7 @@
 using Liq_UI.Filter;
 using Liq_UI.Source;
 using Liq_UI.Target;
+using Liq_UI.Translation;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -46,6 +47,11 @@ namespace Liq_UI
         /// </summary>
         AnalysisBase AnalysisBase = new AnalysisBase();
 
+        /// <summary>
+        /// Translation Base
+        /// </summary>
+        TranslationBase TranslationBase = new TranslationBase();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -54,10 +60,15 @@ namespace Liq_UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //DataTable dt = GetExcelToDataTableBySheet(this.textBox.Text, "KNA1");
+            //Get Source Data
             SourceData = SourceData.GetSource();
+            //Get Target Data
             TargetData = TargetData.GetTarget();
+            //Get Filter
             FilterData = FilterData.GetFilter();
-            AnalysisBase = AnalysisBase.StartAnalysis();
+            //Start Analysis
+            AnalysisBase = AnalysisBase.StartAnalysis(SourceData, TargetData, FilterData);
+            //
         }
 
         public static DataTable GetExcelToDataTableBySheet(string FileFullPath, string SheetName)

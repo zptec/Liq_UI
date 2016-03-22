@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Liq_UI.Filter;
+using Liq_UI.Source;
+using Liq_UI.Target;
 using Liq_UI.Translation;
 
 namespace Liq_UI.Analysis
@@ -54,15 +57,22 @@ namespace Liq_UI.Analysis
         /// </summary>
         public AnalysisFormImpl MixFormImpl { get; internal set; }
 
-        internal AnalysisBase StartAnalysis()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Splitter Form Implementation
         /// </summary>
         public AnalysisFormImpl SplitterFormImpl { get; internal set; }
+
+        /// <summary>
+        /// Start Analysis
+        /// </summary>
+        /// <param name="sourceData">Source Data</param>
+        /// <param name="targetData">Target Data</param>
+        /// <param name="filterData">Filter Data</param>
+        /// <returns>Analysis Result</returns>
+        internal AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// ALV Field Catlog Form Implementation
