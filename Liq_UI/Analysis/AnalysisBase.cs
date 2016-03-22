@@ -54,6 +54,11 @@ namespace Liq_UI.Analysis
         /// </summary>
         public AnalysisFormImpl MixFormImpl { get; internal set; }
 
+        internal AnalysisBase StartAnalysis()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Splitter Form Implementation
         /// </summary>

@@ -57,7 +57,7 @@ namespace Liq_UI
             SourceData = SourceData.GetSource();
             TargetData = TargetData.GetTarget();
             FilterData = FilterData.GetFilter();
-
+            AnalysisBase = AnalysisBase.StartAnalysis();
         }
 
         public static DataTable GetExcelToDataTableBySheet(string FileFullPath, string SheetName)
