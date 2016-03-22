@@ -8,5 +8,9 @@ namespace Liq_UI.Filter
 {
     class FilterData
     {
+        internal FilterData GetFilter()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

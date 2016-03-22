@@ -13,5 +13,10 @@ namespace Liq_UI.Target
 
         //Target Table
         TargetTable TargetTable = new TargetTable();
+
+        internal TargetData GetTarget()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

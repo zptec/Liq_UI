@@ -19,5 +19,10 @@ namespace Liq_UI.Source
         {
             return 0;
         }
+
+        internal SourceData GetSource()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

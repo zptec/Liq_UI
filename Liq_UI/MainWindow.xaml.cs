@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Liq_UI.Filter;
+using Liq_UI.Source;
+using Liq_UI.Target;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -22,6 +25,22 @@ namespace Liq_UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Source Data
+        /// </summary>
+        SourceData SourceData = new SourceData();
+
+        /// <summary>
+        /// Target Data
+        /// </summary>
+        TargetData TargetData = new TargetData();
+
+        /// <summary>
+        /// Filter Data
+        /// </summary>
+        FilterData FilterData = new FilterData();
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,8 +48,10 @@ namespace Liq_UI
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dt = GetExcelToDataTableBySheet(this.textBox.Text, "KNA1");
-
+            //DataTable dt = GetExcelToDataTableBySheet(this.textBox.Text, "KNA1");
+            SourceData = SourceData.GetSource();
+            TargetData = TargetData.GetTarget();
+            FilterData = FilterData.GetFilter();
         }
 
         public static DataTable GetExcelToDataTableBySheet(string FileFullPath, string SheetName)
