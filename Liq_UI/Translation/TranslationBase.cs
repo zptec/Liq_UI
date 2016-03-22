@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Liq_UI.Translation
 {
+    /// <summary>
+    /// Translate Internal Relationship Into Source Code
+    /// </summary>
     class TranslationBase
     {
         //Translate Status
