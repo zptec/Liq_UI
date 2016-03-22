@@ -1,7 +1,9 @@
 ﻿using Liq_UI.Analysis;
 using Liq_UI.Filter;
+using Liq_UI.IO;
 using Liq_UI.Source;
 using Liq_UI.Target;
+using Liq_UI.Training;
 using Liq_UI.Translation;
 using System;
 using System.Collections.Generic;
@@ -28,29 +30,39 @@ namespace Liq_UI
     public partial class MainWindow : Window
     {
         /// <summary>
+        /// Input File
+        /// </summary>
+        IOInputFile Input_File = new IOInputFile();
+
+        /// <summary>
         /// Source Data
         /// </summary>
-        SourceData SourceData = new SourceData();
+        SourceData Input_Source = new SourceData();
 
         /// <summary>
         /// Target Data
         /// </summary>
-        TargetData TargetData = new TargetData();
+        TargetData Input_Target = new TargetData();
 
         /// <summary>
         /// Filter Data
         /// </summary>
-        FilterData FilterData = new FilterData();
+        FilterData Input_Filter = new FilterData();
 
         /// <summary>
         /// Analysis Base
         /// </summary>
-        AnalysisBase AnalysisBase = new AnalysisBase();
+        AnalysisBase Process_Analysis = new AnalysisBase();
 
         /// <summary>
         /// Translation Base
         /// </summary>
-        TranslationBase TranslationBase = new TranslationBase();
+        TranslationBase Output_Translation = new TranslationBase();
+
+        /// <summary>
+        /// Traning Base
+        /// </summary>
+        TrainingBase Process_Training = new TrainingBase();
 
         public MainWindow()
         {
@@ -60,15 +72,26 @@ namespace Liq_UI
         private void button_Click(object sender, RoutedEventArgs e)
         {
             //DataTable dt = GetExcelToDataTableBySheet(this.textBox.Text, "KNA1");
-            //Get Source Data
-            SourceData = SourceData.GetSource();
-            //Get Target Data
-            TargetData = TargetData.GetTarget();
-            //Get Filter
-            FilterData = FilterData.GetFilter();
-            //Start Analysis
-            AnalysisBase = AnalysisBase.StartAnalysis(SourceData, TargetData, FilterData);
-            //
+            //Get File Information
+            Input_File.Init();
+            Process_Training.Init();
+            while (Input_File.ReadNextFile())
+            {
+                //Get Source Data
+                Input_Source = SourceData.GetSource(Input_File.InputData);
+                //Get Target Data
+                Input_Target = TargetData.GetTarget(Input_File.InputData);
+                //Get Filter
+                Input_Filter = FilterData.GetFilter(Input_File.InputData);
+                //Start Analysis
+                Process_Analysis = AnalysisBase.StartAnalysis(Input_Source, Input_Target, Input_Filter);
+                //Translate To Code
+                Output_Translation = TranslationBase.Translate2Code(Process_Analysis);
+                //Update Training Data
+                Process_Training.Update(Process_Analysis, Output_Translation);
+            }
+            //Output Training Result
+            Process_Training.OutputResult();
         }
 
         public static DataTable GetExcelToDataTableBySheet(string FileFullPath, string SheetName)

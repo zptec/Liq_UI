@@ -76,6 +76,7 @@
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
+    <Compile Include="IO\IOInputFile.cs" />
     <Compile Include="Searching\SearchingBase.cs" />
     <Compile Include="Source\SourceRelateCell.cs" />
     <Compile Include="Source\SourceRelateFilter.cs" />
@@ -91,9 +92,9 @@
     <Compile Include="Target\TargetRelateFilter.cs" />
     <Compile Include="Target\TargetStatus.cs" />
     <Compile Include="Target\TargetTable.cs" />
-    <Compile Include="Trainning\TrainningBase.cs" />
-    <Compile Include="Trainning\TrainningCase.cs" />
-    <Compile Include="Trainning\TrainningStatus.cs" />
+    <Compile Include="Training\TrainingBase.cs" />
+    <Compile Include="Training\TrainngCase.cs" />
+    <Compile Include="Training\TrainingStatus.cs" />
     <Compile Include="Analysis\AnalysisWorkArea.cs" />
     <Compile Include="Analysis\AnalysisVariable.cs" />
     <Compile Include="Analysis\AnalysisFormCall.cs" />

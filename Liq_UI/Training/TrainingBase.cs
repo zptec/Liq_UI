@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Liq_UI.Trainning
+namespace Liq_UI.Training
 {
-    class TrainningBase
+    class TrainingBase
     {
         //Trainning Status
-        TrainningStatus Status = new TrainningStatus();
+        TrainingStatus Status = new TrainingStatus();
 
         //Tranning List
-        List<TrainningCase> TrainningList = new List<TrainningCase>();
+        List<TrainingCase> TrainningList = new List<TrainingCase>();
 
         //Tranning Result
         List<AnalysisCase> TrainningResult = new List<AnalysisCase>();

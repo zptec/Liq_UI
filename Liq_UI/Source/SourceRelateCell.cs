@@ -5,13 +5,24 @@ namespace Liq_UI.Source
 {
     internal class SourceRelateCell
     {
-        //Upper Object
+        /// <summary>
+        /// Upper Object
+        /// </summary>
         SourceTableField UpperObject = new SourceTableField();
-        //Relate reference
+
+        /// <summary>
+        /// Relate reference
+        /// </summary>
         TargetField RelateReference = new TargetField();
-        //Relate Mode
+
+        /// <summary>
+        /// Relate Mode
+        /// </summary>
         SourceRelateMode Mode = new SourceRelateMode();
-        //Relate Parameters
+
+        /// <summary>
+        /// Relate Parameters
+        /// </summary>
         List<SourceRelateParameter> RelateParameters = new List<SourceRelateParameter>();
     }
 }

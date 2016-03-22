@@ -18,7 +18,11 @@ namespace Liq_UI.Source
         //Relate Filters
         List<SourceRelateFilter> RelateFilter = new List<SourceRelateFilter>();
 
-        //Set relation to Filter
+        /// <summary>
+        /// Set relation to Filter
+        /// </summary>
+        /// <param name="FilterData">Filter Data</param>
+        /// <returns>Filter Relation</returns>
         int SetFilterRelation(ref FilterData FilterData)
         {
             return 0;

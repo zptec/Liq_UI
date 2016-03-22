@@ -19,7 +19,7 @@ namespace Liq_UI.Translation
         TranslationCode FinalCode = new TranslationCode();
 
         //Translate to final code
-        int Translate2Code(ref AnalysisBase analysisResult)
+        int Translate2Code(AnalysisBase analysisResult)
         {
             //Translator for ABAP heading
             TranslationHeading HeadingTranslator = new TranslationHeading(analysisResult);
@@ -67,6 +67,11 @@ namespace Liq_UI.Translation
             Status = TranslationStatus.TranslateFinished;
 
             return 1;
+        }
+
+        internal TranslationBase Translate2Code(AnalysisBase analysisBase)
+        {
+            throw new NotImplementedException();
         }
     }
 }

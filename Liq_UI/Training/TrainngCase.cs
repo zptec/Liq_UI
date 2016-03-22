@@ -4,12 +4,12 @@ using Liq_UI.Source;
 using Liq_UI.Target;
 using System.Collections.Generic;
 
-namespace Liq_UI.Trainning
+namespace Liq_UI.Training
 {
-    internal class TrainningCase
+    internal class TrainingCase
     {
         //Upper Object
-        TrainningBase UpperObject = new TrainningBase();
+        TrainingBase UpperObject = new TrainingBase();
 
         //Source Data
         SourceData SourceData = new SourceData();
