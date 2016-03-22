@@ -1,4 +1,5 @@
-﻿using Liq_UI.Filter;
+﻿using Liq_UI.Analysis;
+using Liq_UI.Filter;
 using Liq_UI.Source;
 using Liq_UI.Target;
 using System;
@@ -40,6 +41,10 @@ namespace Liq_UI
         /// </summary>
         FilterData FilterData = new FilterData();
 
+        /// <summary>
+        /// Analysis Base
+        /// </summary>
+        AnalysisBase AnalysisBase = new AnalysisBase();
 
         public MainWindow()
         {
@@ -52,6 +57,7 @@ namespace Liq_UI
             SourceData = SourceData.GetSource();
             TargetData = TargetData.GetTarget();
             FilterData = FilterData.GetFilter();
+
         }
 
         public static DataTable GetExcelToDataTableBySheet(string FileFullPath, string SheetName)
