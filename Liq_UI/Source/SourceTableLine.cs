@@ -4,10 +4,14 @@ namespace Liq_UI.Source
 {
     internal class SourceTableLine
     {
-        //Upper Object
-        SourceTable UpperObject = new SourceTable();
+        /// <summary>
+        /// Upper Object
+        /// </summary>
+        public SourceTable UpperObject = new SourceTable();
 
-        //Field Data List
-        List<SourceTableField> FieldDataList = new List<SourceTableField>();
+        /// <summary>
+        /// Field Data List
+        /// </summary>
+        public List<SourceTableField> FieldDataList = new List<SourceTableField>();
     }
 }

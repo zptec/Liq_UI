@@ -4,11 +4,17 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Liq_UI.Analysis;
 
 namespace Liq_UI.Filter
 {
     class FilterData
     {
+        /// <summary>
+        /// Filter Field List
+        /// </summary>
+        public List<FilterField> Fields { get; internal set; }
+
         internal FilterData GetFilter()
         {
             throw new NotImplementedException();

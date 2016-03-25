@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Liq_UI.Filter;
+using Liq_UI.Source;
 
 namespace Liq_UI.Searching
 {
@@ -36,6 +38,32 @@ namespace Liq_UI.Searching
         void GetUnionRelation()
         {
 
+        }
+
+        /// <summary>
+        /// Search the match fields between filter and source data
+        /// </summary>
+        /// <param name="filterData">Filter Data</param>
+        /// <param name="sourceData">Source Data</param>
+        internal static void Filter2Source(FilterData filterData, SourceData sourceData)
+        {
+            foreach (FilterField Filter_Field in filterData.Fields)
+            {
+                foreach (SourceTable Source_Table in sourceData.TableList)
+                {
+                    for (int i = 0; i < Source_Table.TableFields.Count; i++)
+                    {
+
+                        foreach (SourceTableLine Source_Table_Line in Source_Table.TableContents)
+                        {
+                            foreach (SourceTableField Source_Table_Field in Source_Table_Line.FieldDataList)
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

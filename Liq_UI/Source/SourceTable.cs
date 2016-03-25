@@ -5,13 +5,19 @@ namespace Liq_UI.Source
 {
     internal class SourceTable
     {
-        //Upper Object
-        SourceData Upper = new SourceData();
+        /// <summary>
+        /// Upper Object
+        /// </summary>
+        public SourceData Upper = new SourceData();
 
-        //Table Fields
-        List<string> TableFields = new List<string>();
+        /// <summary>
+        /// Table Fields
+        /// </summary>
+        public List<string> TableFields = new List<string>();
 
-        //Table Contents 
-        List<SourceTableLine> TableContents = new List<SourceTableLine>();
+        /// <summary>
+        /// Table Contents 
+        /// </summary>
+        public List<SourceTableLine> TableContents = new List<SourceTableLine>();
     }
 }

@@ -7,6 +7,7 @@ using Liq_UI.Filter;
 using Liq_UI.Source;
 using Liq_UI.Target;
 using Liq_UI.Translation;
+using Liq_UI.Searching;
 
 namespace Liq_UI.Analysis
 {
@@ -71,7 +72,8 @@ namespace Liq_UI.Analysis
         /// <returns>Analysis Result</returns>
         internal static AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
         {
-            //Search the match fields in filter and data source
+            //Search the match fields between filter and source data
+            SearchingBase.Filter2Source(filterData, sourceData);
         }
 
         /// <summary>

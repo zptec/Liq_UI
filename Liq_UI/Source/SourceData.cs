@@ -9,19 +9,30 @@ namespace Liq_UI.Source
 {
     class SourceData
     {
-        //Source Status
-        SourceStatus Status = new SourceStatus();
+        /// <summary>
+        /// Source Status
+        /// </summary>
+        public SourceStatus Status = new SourceStatus();
 
-        //Source Tables List
-        List<SourceTable> TableList = new List<SourceTable>();
+        /// <summary>
+        /// Source Tables List
+        /// </summary>
+        public List<SourceTable> TableList = new List<SourceTable>();
 
-        //Set table relations
-        int SetTableRelations()
+        /// <summary>
+        /// Set table relations
+        /// </summary>
+        /// <returns></returns>
+        public int SetTableRelations()
         {
             return 0;
         }
 
-        internal SourceData GetSource()
+        /// <summary>
+        /// Get Source
+        /// </summary>
+        /// <returns></returns>
+        public SourceData GetSource()
         {
             throw new NotImplementedException();
         }
