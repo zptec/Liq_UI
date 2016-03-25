@@ -71,7 +71,7 @@ namespace Liq_UI.Analysis
         /// <returns>Analysis Result</returns>
         internal static AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
         {
-            throw new NotImplementedException();
+            //Search the match fields in filter and data source
         }
 
         /// <summary>
