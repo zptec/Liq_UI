@@ -4,7 +4,7 @@ using Liq_UI.Analysis;
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationDefinition
+    public class TranslationDefinition
     {
         //Analysis Result
         private AnalysisBase analysisResult;
@@ -23,7 +23,7 @@ namespace Liq_UI.Translation
         }
 
         //Generate ABAP definition code
-        internal List<TranslationSegment> GenerateCode()
+        public List<TranslationSegment> GenerateCode()
         {
             List<TranslationSegment> segments = new List<TranslationSegment>();
 

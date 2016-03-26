@@ -8,14 +8,14 @@ using Liq_UI.Analysis;
 
 namespace Liq_UI.Filter
 {
-    class FilterData
+    public class FilterData
     {
         /// <summary>
         /// Filter Field List
         /// </summary>
-        public List<FilterField> Fields { get; internal set; }
+        public List<FilterField> Fields { get; public set; }
 
-        internal FilterData GetFilter()
+        public FilterData GetFilter()
         {
             throw new NotImplementedException();
         }
@@ -25,7 +25,7 @@ namespace Liq_UI.Filter
         /// </summary>
         /// <param name="inputData">Input Data Set</param>
         /// <returns>Filter of Input Data</returns>
-        internal static FilterData GetFilter(DataSet inputData)
+        public static FilterData GetFilter(DataSet inputData)
         {
             throw new NotImplementedException();
         }

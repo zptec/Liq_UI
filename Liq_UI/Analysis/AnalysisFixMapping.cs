@@ -8,8 +8,8 @@ namespace Liq_UI.Analysis
 {
     class AnalysisFixMapping
     {
-        public string FixValue { get; internal set; }
+        public string FixValue { get; public set; }
 
-        public AnalysisField TargetField { get; internal set; }
+        public AnalysisField TargetField { get; public set; }
     }
 }

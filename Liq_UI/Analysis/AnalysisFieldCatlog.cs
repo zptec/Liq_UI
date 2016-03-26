@@ -7,12 +7,12 @@ namespace Liq_UI.Analysis
         /// <summary>
         /// Field catlog property name
         /// </summary>
-        public string CatlogName { get; internal set; }
+        public string CatlogName { get; public set; }
 
         /// <summary>
         /// Field catlog property value
         /// </summary>
-        public string CatlogValue { get; internal set; }
-        internal IEnumerable<AnalysisField> Targets { get; set; }
+        public string CatlogValue { get; public set; }
+        public IEnumerable<AnalysisField> Targets { get; set; }
     }
 }

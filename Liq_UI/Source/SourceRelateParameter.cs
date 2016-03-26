@@ -1,6 +1,6 @@
 ﻿namespace Liq_UI.Source
 {
-    internal class SourceRelateParameter
+    public class SourceRelateParameter
     {
         //Upper Object
         SourceRelateCell UpperObject = new SourceRelateCell();

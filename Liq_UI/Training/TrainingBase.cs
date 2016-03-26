@@ -38,7 +38,7 @@ namespace Liq_UI.Training
         /// <summary>
         /// Init Training Processer
         /// </summary>
-        internal void Init()
+        public void Init()
         {
             throw new NotImplementedException();
         }
@@ -48,7 +48,7 @@ namespace Liq_UI.Training
         /// </summary>
         /// <param name="process_Analysis">Analysis Result</param>
         /// <param name="output_Translation">Translation Result</param>
-        internal void Update(AnalysisBase process_Analysis, TranslationBase output_Translation)
+        public void Update(AnalysisBase process_Analysis, TranslationBase output_Translation)
         {
             throw new NotImplementedException();
         }
@@ -56,7 +56,7 @@ namespace Liq_UI.Training
         /// <summary>
         /// Output Training Result
         /// </summary>
-        internal void OutputResult()
+        public void OutputResult()
         {
             //Output Probability and Target Code
             MessageBox.Show( "Training Set Count = " + this.TraningSet.Count.ToString()

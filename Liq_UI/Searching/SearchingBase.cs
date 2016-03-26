@@ -45,7 +45,7 @@ namespace Liq_UI.Searching
         /// </summary>
         /// <param name="filterData">Filter Data</param>
         /// <param name="sourceData">Source Data</param>
-        internal static void Filter2Source(FilterData filterData, SourceData sourceData)
+        public static void Filter2Source(FilterData filterData, SourceData sourceData)
         {
             foreach (FilterField Filter_Field in filterData.Fields)
             {
@@ -53,12 +53,11 @@ namespace Liq_UI.Searching
                 {
                     for (int i = 0; i < Source_Table.TableFields.Count; i++)
                     {
-
                         foreach (SourceTableLine Source_Table_Line in Source_Table.TableContents)
                         {
-                            foreach (SourceTableField Source_Table_Field in Source_Table_Line.FieldDataList)
+                            if (SearchingMatching.Equal(Source_Table_Line.FieldDataList[i].FieldValue, Filter_Field.FilterFieldValue))
                             {
-
+                                Filter_Field.RefTableField.Add(Source_Table.TableName, Source_Table.TableFields[i]);
                             }
                         }
                     }

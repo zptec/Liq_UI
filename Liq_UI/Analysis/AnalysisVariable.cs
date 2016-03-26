@@ -1,9 +1,9 @@
 ﻿namespace Liq_UI.Analysis
 {
-    internal class AnalysisVariable
+    public class AnalysisVariable
     {
-        public string RefField { get; internal set; }
-        public string RefTable { get; internal set; }
-        public string VariableName { get; internal set; }
+        public string RefField { get; public set; }
+        public string RefTable { get; public set; }
+        public string VariableName { get; public set; }
     }
 }

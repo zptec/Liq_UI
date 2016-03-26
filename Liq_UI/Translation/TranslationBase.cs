@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Liq_UI.Translation
 {
     /// <summary>
-    /// Translate Internal Relationship Into Source Code
+    /// Translate public Relationship Into Source Code
     /// </summary>
-    class TranslationBase
+    public class TranslationBase
     {
         //Translate Status
         TranslationStatus Status = TranslationStatus.NotTranslated;
@@ -23,7 +23,7 @@ namespace Liq_UI.Translation
         /// </summary>
         /// <param name="analysisResult">Analysis result</param>
         /// <returns>Final code detail</returns>
-        internal static TranslationBase Translate2Code(AnalysisBase analysisResult)
+        public static TranslationBase Translate2Code(AnalysisBase analysisResult)
         {
             //Translation Base
             TranslationBase Process_Translate = new TranslationBase();
@@ -43,7 +43,7 @@ namespace Liq_UI.Translation
             //Translator for ABAP table reading
             TranslationTableReading ReadingTranslator = new TranslationTableReading(analysisResult);
 
-            //Translator for ABAP internal table processing
+            //Translator for ABAP public table processing
             TranslationProcessing ProcessTranslator = new TranslationProcessing(analysisResult);
 
             //Translator for ABAP ALV
@@ -64,7 +64,7 @@ namespace Liq_UI.Translation
             //Generate ABAP table reading
             Process_Translate.FinalCode.InsertCode( ReadingTranslator.GenerateCode() );
 
-            //Generate ABAP internal table processing
+            //Generate ABAP public table processing
             Process_Translate.FinalCode.InsertCode( ProcessTranslator.GenerateCode() );
 
             //Generate ABAP ALV

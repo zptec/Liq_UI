@@ -8,9 +8,9 @@ namespace Liq_UI.Analysis
 {
     class AnalysisCondition
     {
-        public string LFieldName { get; internal set; }
-        public string LTableAs { get; internal set; }
-        public string RFieldName { get; internal set; }
-        public string RTableAs { get; internal set; }
+        public string LFieldName { get; public set; }
+        public string LTableAs { get; public set; }
+        public string RFieldName { get; public set; }
+        public string RTableAs { get; public set; }
     }
 }

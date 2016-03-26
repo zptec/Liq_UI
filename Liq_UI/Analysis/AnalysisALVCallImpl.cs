@@ -2,7 +2,7 @@
 {
     public class AnalysisALVCallImpl
     {
-        public string FormDesc { get; internal set; }
-        public string FormName { get; internal set; }
+        public string FormDesc { get; public set; }
+        public string FormName { get; public set; }
     }
 }

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Liq_UI.Analysis
 {
-    class AnalysisTable
+    public class AnalysisTable
     {
-        internal List<AnalysisField> fields;
+        public List<AnalysisField> fields;
 
-        public IEnumerable<AnalysisCondition> JoinCondition { get; internal set; }
-        public AnalysisTable Entries { get; internal set; }
-        public AnalysisJoinType JoinType { get; internal set; }
-        public IEnumerable<AnalysisCondition> SelectionConditions { get; internal set; }
-        public IEnumerable<AnalysisField> SelectionFields { get; internal set; }
-        public IEnumerable<AnalysisTable> SelectionFrom { get; internal set; }
-        public object TableAs { get; internal set; }
-        public string TableDesc { get; internal set; }
-        public string TableName { get; internal set; }
-        public IEnumerable<AnalysisField> TableKeys { get; internal set; }
+        public IEnumerable<AnalysisCondition> JoinCondition { get; public set; }
+        public AnalysisTable Entries { get; public set; }
+        public AnalysisJoinType JoinType { get; public set; }
+        public IEnumerable<AnalysisCondition> SelectionConditions { get; public set; }
+        public IEnumerable<AnalysisField> SelectionFields { get; public set; }
+        public IEnumerable<AnalysisTable> SelectionFrom { get; public set; }
+        public object TableAs { get; public set; }
+        public string TableDesc { get; public set; }
+        public string TableName { get; public set; }
+        public IEnumerable<AnalysisField> TableKeys { get; public set; }
     }
 }

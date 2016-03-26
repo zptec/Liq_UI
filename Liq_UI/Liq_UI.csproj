@@ -76,8 +76,11 @@
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
+    <Compile Include="Searching\SearchingTableFieldMapping.cs" />
     <Compile Include="IO\IOInputFile.cs" />
     <Compile Include="Searching\SearchingBase.cs" />
+    <Compile Include="Searching\SearchingMatching.cs" />
+    <Compile Include="Searching\SearchingTableFieldWeight.cs" />
     <Compile Include="Source\SourceRelateCell.cs" />
     <Compile Include="Source\SourceRelateFilter.cs" />
     <Compile Include="Source\SourceRelateMode.cs" />

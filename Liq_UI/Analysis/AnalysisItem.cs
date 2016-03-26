@@ -9,9 +9,9 @@ namespace Liq_UI.Analysis
     class AnalysisItem
     {
         //Constans parameter
-        public double Cons { get; internal set; }
+        public double Cons { get; public set; }
         
         //Elements
-        public List<AnalysisElement> Elements { get; internal set; }
+        public List<AnalysisElement> Elements { get; public set; }
     }
 }

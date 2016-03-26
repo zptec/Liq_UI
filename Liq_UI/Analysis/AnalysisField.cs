@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Liq_UI.Analysis
 {
-    class AnalysisField
+    public class AnalysisField
     {
         /// <summary>
         /// Catlog Property List
         /// </summary>
-        public List<AnalysisFieldCatlog> CatlogProperties { get; internal set; }
+        public List<AnalysisFieldCatlog> CatlogProperties { get; public set; }
 
         //Field Description
-        public string FieldDesc { get; internal set; }
+        public string FieldDesc { get; public set; }
         
         //Field Name
-        public string FieldName { get; internal set; }
+        public string FieldName { get; public set; }
 
         //Ref Field Name 
-        public string RefField { get; internal set; }
+        public string RefField { get; public set; }
 
         //Ref Table Name
-        public string RefTable { get; internal set; }
-        public string TableAs { get; internal set; }
+        public string RefTable { get; public set; }
+        public string TableAs { get; public set; }
     }
 }

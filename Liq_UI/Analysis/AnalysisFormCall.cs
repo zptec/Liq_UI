@@ -1,20 +1,20 @@
 ﻿namespace Liq_UI.Analysis
 {
-    internal class AnalysisFormCall
+    public class AnalysisFormCall
     {
         /// <summary>
         /// From deacription
         /// </summary>
-        public string FormDesc { get; internal set; }
+        public string FormDesc { get; public set; }
         
         /// <summary>
         /// Form Name
         /// </summary>
-        public string FormName { get; internal set; }
+        public string FormName { get; public set; }
 
         /// <summary>
         /// Form Index
         /// </summary>
-        public string Index { get; internal set; }
+        public string Index { get; public set; }
     }
 }

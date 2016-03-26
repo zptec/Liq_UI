@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationALV
+    public class TranslationALV
     {
         //Analysis Result
         private AnalysisBase analysisResult;
@@ -20,7 +20,7 @@ namespace Liq_UI.Translation
             this.translationBase = translationBase;
         }
 
-        internal List<TranslationSegment> GenerateCode()
+        public List<TranslationSegment> GenerateCode()
         {
             List<TranslationSegment> segments = new List<TranslationSegment>();
 

@@ -1,6 +1,6 @@
 ﻿namespace Liq_UI.Translation
 {
-    internal enum TranslationSegmentType
+    public enum TranslationSegmentType
     {
         //Heading Region
         Heading = 1,

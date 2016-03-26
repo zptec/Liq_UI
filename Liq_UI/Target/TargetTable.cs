@@ -1,6 +1,6 @@
 ﻿namespace Liq_UI.Target
 {
-    internal class TargetTable
+    public class TargetTable
     {
         //Upper Object
         TargetData UpperObject = new TargetData();

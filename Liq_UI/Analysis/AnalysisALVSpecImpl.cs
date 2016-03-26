@@ -5,11 +5,11 @@
         /// <summary>
         /// Form Description
         /// </summary>
-        public string FormDesc { get; internal set; }
+        public string FormDesc { get; public set; }
 
         /// <summary>
         /// Form Name
         /// </summary>
-        public string FormName { get; internal set; }
+        public string FormName { get; public set; }
     }
 }

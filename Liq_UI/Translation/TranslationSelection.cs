@@ -4,7 +4,7 @@ using Liq_UI.Analysis;
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationSelection
+    public class TranslationSelection
     {
         //Analysis Result
         private AnalysisBase analysisResult;
@@ -22,7 +22,7 @@ namespace Liq_UI.Translation
             this.translationBase = translationBase;
         }
 
-        internal List<TranslationSegment> GenerateCode()
+        public List<TranslationSegment> GenerateCode()
         {
             return new List<TranslationSegment>();
         }

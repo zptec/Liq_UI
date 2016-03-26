@@ -11,57 +11,57 @@ using Liq_UI.Searching;
 
 namespace Liq_UI.Analysis
 {
-    class AnalysisBase
+    public class AnalysisBase
     {
         /// <summary>
         /// ALV Output Fields
         /// </summary>
-        public List<AnalysisField> OutputFields { get; internal set; }
+        public List<AnalysisField> OutputFields { get; public set; }
 
         /// <summary>
         /// Tables
         /// </summary>
-        public List<AnalysisTable> Tables { get; internal set; }
+        public List<AnalysisTable> Tables { get; public set; }
 
         /// <summary>
         /// Auxi Tables
         /// </summary>
-        public List<AnalysisTable> AuxiTables { get; internal set; }
+        public List<AnalysisTable> AuxiTables { get; public set; }
 
         /// <summary>
         /// Work areas
         /// </summary>
-        public List<AnalysisWorkArea> WorkArea { get; internal set; }
+        public List<AnalysisWorkArea> WorkArea { get; public set; }
 
         /// <summary>
         /// Variables
         /// </summary>
-        public List<AnalysisVariable> Variable { get; internal set; }
+        public List<AnalysisVariable> Variable { get; public set; }
 
         /// <summary>
         /// Form Call List
         /// </summary>
-        public List<AnalysisFormCall> FormCalls { get; internal set; }
+        public List<AnalysisFormCall> FormCalls { get; public set; }
 
         /// <summary>
         /// Form Implementation List
         /// </summary>
-        public List<AnalysisFormImpl> FormImpl { get; internal set; }
+        public List<AnalysisFormImpl> FormImpl { get; public set; }
 
         /// <summary>
         /// Mapping Form Implementation
         /// </summary>
-        public AnalysisFormImpl MappingFormImpl { get; internal set; }
+        public AnalysisFormImpl MappingFormImpl { get; public set; }
 
         /// <summary>
         /// Mix Form Implementation
         /// </summary>
-        public AnalysisFormImpl MixFormImpl { get; internal set; }
+        public AnalysisFormImpl MixFormImpl { get; public set; }
 
         /// <summary>
         /// Splitter Form Implementation
         /// </summary>
-        public AnalysisFormImpl SplitterFormImpl { get; internal set; }
+        public AnalysisFormImpl SplitterFormImpl { get; public set; }
 
         /// <summary>
         /// Start Analysis
@@ -70,7 +70,7 @@ namespace Liq_UI.Analysis
         /// <param name="targetData">Target Data</param>
         /// <param name="filterData">Filter Data</param>
         /// <returns>Analysis Result</returns>
-        internal static AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
+        public static AnalysisBase StartAnalysis(SourceData sourceData, TargetData targetData, FilterData filterData)
         {
             //Search the match fields between filter and source data
             SearchingBase.Filter2Source(filterData, sourceData);
@@ -79,17 +79,17 @@ namespace Liq_UI.Analysis
         /// <summary>
         /// ALV Field Catlog Form Implementation
         /// </summary>
-        public AnalysisAppendFieldCatlogImpl AppendFieldCatlogImpl { get; internal set; }
+        public AnalysisAppendFieldCatlogImpl AppendFieldCatlogImpl { get; public set; }
 
         /// <summary>
         /// ALV Spec Form Implementation
         /// </summary>
-        public AnalysisALVSpecImpl ALVSpecImpl { get; internal set; }
+        public AnalysisALVSpecImpl ALVSpecImpl { get; public set; }
 
         /// <summary>
         /// ALV Call Form Implementation
         /// </summary>
-        public AnalysisALVCallImpl ALVCallImpl { get; internal set; }
+        public AnalysisALVCallImpl ALVCallImpl { get; public set; }
 
         //Five Directions:
         //Get North ( Prev Union )

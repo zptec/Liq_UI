@@ -4,7 +4,7 @@ using Liq_UI.Analysis;
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationDBFetching
+    public class TranslationDBFetching
     {
         private object abapTable;
 
@@ -24,7 +24,7 @@ namespace Liq_UI.Translation
             this.translationBase = translationBase;
         }
 
-        internal List<TranslationSegment> GenerateCode()
+        public List<TranslationSegment> GenerateCode()
         {
             List<TranslationSegment> segments = new List<TranslationSegment>();
 

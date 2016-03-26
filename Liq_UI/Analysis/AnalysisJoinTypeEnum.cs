@@ -1,6 +1,6 @@
 ﻿namespace Liq_UI.Analysis
 {
-    internal enum AnalysisJoinTypeEnum
+    public enum AnalysisJoinTypeEnum
     {
         //Inner Join
         InnerJoin = 1,

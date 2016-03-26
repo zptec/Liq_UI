@@ -2,7 +2,7 @@
 
 namespace Liq_UI.Source
 {
-    internal class SourceTableLine
+    public class SourceTableLine
     {
         /// <summary>
         /// Upper Object

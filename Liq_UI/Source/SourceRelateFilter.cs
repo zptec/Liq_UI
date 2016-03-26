@@ -2,11 +2,16 @@
 
 namespace Liq_UI.Source
 {
-    internal class SourceRelateFilter
+    public class SourceRelateFilter
     {
-        //Upper Object
+        /// <summary>
+        /// Upper Object
+        /// </summary>
         SourceTableField UpperObject = new SourceTableField();
-        //Relate reference
+
+        /// <summary>
+        /// Relate reference
+        /// </summary>
         FilterField RelateReference = new FilterField();
     }
 }

@@ -2,7 +2,7 @@
 {
     public class AnalysisJoinType
     {
-        internal AnalysisJoinTypeEnum JoinTypes = new AnalysisJoinTypeEnum();
+        public AnalysisJoinTypeEnum JoinTypes = new AnalysisJoinTypeEnum();
 
         public override string ToString()
         {

@@ -8,10 +8,10 @@ namespace Liq_UI.Analysis
 {
     class AnalysisReadMapping
     {
-        public List<AnalysisFieldMapping> KeyList { get; internal set; }
+        public List<AnalysisFieldMapping> KeyList { get; public set; }
 
-        public AnalysisTable SourceTable { get; internal set; }
+        public AnalysisTable SourceTable { get; public set; }
 
-        public List<AnalysisFieldMapping> ValueList { get; internal set; }
+        public List<AnalysisFieldMapping> ValueList { get; public set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationCode
+    public class TranslationCode
     {
         //Code type string
         string Code = "";
@@ -12,7 +12,7 @@ namespace Liq_UI.Translation
         List<TranslationSegment> CodeSegments = new List<TranslationSegment>();
 
         //Insert Code Segment
-        internal void InsertCode(List<TranslationSegment> Segments)
+        public void InsertCode(List<TranslationSegment> Segments)
         {
             CodeSegments.AddRange(Segments);
         }

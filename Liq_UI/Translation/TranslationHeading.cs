@@ -4,7 +4,7 @@ using Liq_UI.Analysis;
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationHeading
+    public class TranslationHeading
     {
         //Analysis Result
         private AnalysisBase analysisResult;
@@ -32,7 +32,7 @@ namespace Liq_UI.Translation
         }
 
         //Generate Heading code
-        internal List<TranslationSegment> GenerateCode()
+        public List<TranslationSegment> GenerateCode()
         {
             List<TranslationSegment> segments = new List<TranslationSegment>();
 

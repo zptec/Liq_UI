@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Liq_UI.Training
 {
-    internal class TrainingCase
+    public class TrainingCase
     {
         //Upper Object
         TrainingBase UpperObject = new TrainingBase();

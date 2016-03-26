@@ -12,12 +12,12 @@ namespace Liq_UI.IO
         /// <summary>
         /// Input Data Set
         /// </summary>
-        public DataSet InputData { get; internal set; }
+        public DataSet InputData { get; public set; }
 
         /// <summary>
         /// Init File Processer
         /// </summary>
-        internal void Init()
+        public void Init()
         {
             throw new NotImplementedException();
         }
@@ -26,7 +26,7 @@ namespace Liq_UI.IO
         /// Read each File
         /// </summary>
         /// <returns></returns>
-        internal bool ReadNextFile()
+        public bool ReadNextFile()
         {
             throw new NotImplementedException();
         }

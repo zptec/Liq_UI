@@ -3,26 +3,26 @@ using Liq_UI.Target;
 
 namespace Liq_UI.Source
 {
-    internal class SourceRelateCell
+    public class SourceRelateCell
     {
         /// <summary>
         /// Upper Object
         /// </summary>
-        SourceTableField UpperObject = new SourceTableField();
+        public SourceTableField UpperObject = new SourceTableField();
 
         /// <summary>
         /// Relate reference
         /// </summary>
-        TargetField RelateReference = new TargetField();
+        public TargetField RelateReference = new TargetField();
 
         /// <summary>
         /// Relate Mode
         /// </summary>
-        SourceRelateMode Mode = new SourceRelateMode();
+        public SourceRelateMode Mode = new SourceRelateMode();
 
         /// <summary>
         /// Relate Parameters
         /// </summary>
-        List<SourceRelateParameter> RelateParameters = new List<SourceRelateParameter>();
+        public List<SourceRelateParameter> RelateParameters = new List<SourceRelateParameter>();
     }
 }

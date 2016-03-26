@@ -3,7 +3,7 @@ using System.Data;
 
 namespace Liq_UI.Source
 {
-    internal class SourceTable
+    public class SourceTable
     {
         /// <summary>
         /// Upper Object
@@ -19,5 +19,7 @@ namespace Liq_UI.Source
         /// Table Contents 
         /// </summary>
         public List<SourceTableLine> TableContents = new List<SourceTableLine>();
+
+        public string TableName { get; internal set; }
     }
 }

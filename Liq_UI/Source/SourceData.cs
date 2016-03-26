@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Liq_UI.Source
 {
-    class SourceData
+    public class SourceData
     {
         /// <summary>
         /// Source Status
@@ -42,7 +42,7 @@ namespace Liq_UI.Source
         /// </summary>
         /// <param name="inputData">Input Data Set</param>
         /// <returns>Source of Input Data</returns>
-        internal static SourceData GetSource(DataSet inputData)
+        public static SourceData GetSource(DataSet inputData)
         {
             throw new NotImplementedException();
         }

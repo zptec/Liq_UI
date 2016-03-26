@@ -1,6 +1,6 @@
 ﻿namespace Liq_UI.Translation
 {
-    internal enum TranslationStatus
+    public enum TranslationStatus
     {
         //Not Translated yet
         NotTranslated = 1,

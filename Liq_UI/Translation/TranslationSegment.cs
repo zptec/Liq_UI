@@ -2,7 +2,7 @@
 
 namespace Liq_UI.Translation
 {
-    internal class TranslationSegment
+    public class TranslationSegment
     {
         //Name of Segment
         private string SegName;

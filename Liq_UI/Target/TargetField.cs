@@ -2,13 +2,21 @@
 
 namespace Liq_UI.Target
 {
-    internal class TargetField
+    public class TargetField
     {
-        //Field Value
-        string FieldValue = "";
-        //Relate Cells
-        List<TargetRelateCell> RelateCells = new List<TargetRelateCell>();
-        //Relate Filters
-        List<TargetRelateFilter> RelateFilter = new List<TargetRelateFilter>();
+        /// <summary>
+        /// Field Value
+        /// </summary>
+        public string FieldValue = "";
+
+        /// <summary>
+        /// Relate Cells
+        /// </summary>
+        public List<TargetRelateCell> RelateCells = new List<TargetRelateCell>();
+
+        /// <summary>
+        /// Relate Filters
+        /// </summary>
+        public List<TargetRelateFilter> RelateFilter = new List<TargetRelateFilter>();
     }
 }
