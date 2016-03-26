@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Liq_UI.Searching;
+using System.Collections.Generic;
 
 namespace Liq_UI.Target
 {
@@ -18,5 +19,10 @@ namespace Liq_UI.Target
         /// Relate Filters
         /// </summary>
         public List<TargetRelateFilter> RelateFilter = new List<TargetRelateFilter>();
+
+        /// <summary>
+        /// Table Field Mapping
+        /// </summary>
+        public SearchingTableFieldMapping RefTableField { get; internal set; }
     }
 }

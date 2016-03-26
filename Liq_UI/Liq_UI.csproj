@@ -95,6 +95,7 @@
     <Compile Include="Target\TargetRelateFilter.cs" />
     <Compile Include="Target\TargetStatus.cs" />
     <Compile Include="Target\TargetTable.cs" />
+    <Compile Include="Target\TargetTableLine.cs" />
     <Compile Include="Training\TrainingBase.cs" />
     <Compile Include="Training\TrainingData.cs" />
     <Compile Include="Training\TrainngCase.cs" />

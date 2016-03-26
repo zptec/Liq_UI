@@ -17,7 +17,7 @@ namespace Liq_UI.Filter
         public string FilterFieldValue = "";
 
         /// <summary>
-        /// AnalisisField
+        /// Table Field Mapping
         /// </summary>
         public SearchingTableFieldMapping RefTableField { get; internal set; }
     }

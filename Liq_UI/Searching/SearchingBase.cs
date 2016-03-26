@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Liq_UI.Filter;
 using Liq_UI.Source;
+using Liq_UI.Target;
 
 namespace Liq_UI.Searching
 {
@@ -51,13 +52,41 @@ namespace Liq_UI.Searching
             {
                 foreach (SourceTable Source_Table in sourceData.TableList)
                 {
-                    for (int i = 0; i < Source_Table.TableFields.Count; i++)
+                    foreach (SourceTableLine Source_Table_Line in Source_Table.TableContents)
                     {
-                        foreach (SourceTableLine Source_Table_Line in Source_Table.TableContents)
+                        for (int i = 0; i < Source_Table_Line.FieldDataList.Count; i++)
                         {
                             if (SearchingMatching.Equal(Source_Table_Line.FieldDataList[i].FieldValue, Filter_Field.FilterFieldValue))
                             {
                                 Filter_Field.RefTableField.Add(Source_Table.TableName, Source_Table.TableFields[i]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Search the match fields between target and source data
+        /// </summary>
+        /// <param name="targetData">Target Data</param>
+        /// <param name="sourceData">Source Data</param>
+        public static void Target2Source(TargetData targetData, SourceData sourceData)
+        {
+            for (int i = 0; i < targetData.TargetTable.TableContent.Count; i++)
+            {
+                for (int j = 0; j < targetData.TargetTable.TableContent[i].Fields.Count; j++)
+                {
+                    foreach(SourceTable Source_Table in sourceData.TableList)
+                    {
+                        foreach (SourceTableLine Source_Table_Line in Source_Table.TableContents)
+                        {
+                            for (int k = 0; k < Source_Table_Line.FieldDataList.Count; k++)
+                            {
+                                if (SearchingMatching.Equal(Source_Table_Line.FieldDataList[k].FieldValue, targetData.TargetTable.TableContent[i].Fields[j].FieldValue))
+                                {
+                                    targetData.TargetTable.TableContent[i].Fields[j].RefTableField.Add(Source_Table.TableName, Source_Table.TableFields[i]);
+                                }
                             }
                         }
                     }

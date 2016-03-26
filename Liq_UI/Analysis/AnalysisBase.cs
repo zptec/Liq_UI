@@ -74,6 +74,9 @@ namespace Liq_UI.Analysis
         {
             //Search the match fields between filter and source data
             SearchingBase.Filter2Source(filterData, sourceData);
+
+            //Search the match fields between targetData and source data
+            SearchingBase.Target2Source(targetData, sourceData);
         }
 
         /// <summary>
