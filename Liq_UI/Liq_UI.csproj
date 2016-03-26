@@ -76,6 +76,7 @@
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
+    <Compile Include="Searching\SearchingBack.cs" />
     <Compile Include="Searching\SearchingTableFieldMapping.cs" />
     <Compile Include="IO\IOInputFile.cs" />
     <Compile Include="Searching\SearchingBase.cs" />

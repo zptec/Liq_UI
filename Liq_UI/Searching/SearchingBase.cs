@@ -64,6 +64,7 @@ namespace Liq_UI.Searching
                     }
                 }
             }
+            SearchingBack.SourceBackToFilter(sourceData, filterData);
         }
 
         /// <summary>
@@ -92,6 +93,7 @@ namespace Liq_UI.Searching
                     }
                 }
             }
+            SearchingBack.SourceBackToTarget(sourceData, targetData);
         }
     }
 }
