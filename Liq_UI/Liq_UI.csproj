@@ -76,7 +76,7 @@
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
-    <Compile Include="Prototype\P001_Input_and_Output_Data.cs" />
+    <Compile Include="Prototype\P001_Input_and_Output_Sample.cs" />
     <Compile Include="Searching\SearchingBack.cs" />
     <Compile Include="Searching\SearchingTableFieldMapping.cs" />
     <Compile Include="IO\IOInputFile.cs" />

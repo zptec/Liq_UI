@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Liq_UI.Prototype
 {
-    class P001_Input_and_Output_Data
+    /// <summary>
+    /// Input And Output Sample of Rapid Prototype
+    /// </summary>
+    class P001_Input_and_Output_Sample
     {
+
     }
 }
