@@ -76,6 +76,7 @@
     <Compile Include="Analysis\AnalysisTable.cs" />
     <Compile Include="Filter\FilterData.cs" />
     <Compile Include="Filter\FilterField.cs" />
+    <Compile Include="Prototype\P001_Input_and_Output_Data.cs" />
     <Compile Include="Searching\SearchingBack.cs" />
     <Compile Include="Searching\SearchingTableFieldMapping.cs" />
     <Compile Include="IO\IOInputFile.cs" />
@@ -157,9 +158,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Prototype\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
