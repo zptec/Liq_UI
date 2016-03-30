@@ -49,12 +49,18 @@ namespace Liq_UI.Prototype
             { "Customer",       "LC00001"       }
         };
 
+        /// <summary>
         /// §1.1.3 Target Data
+        /// </summary>
         string[,] TargetData = new string[,]
         {
             { "Customer",       "Customer Name",                            "SO" },
             { "LC00001",        "KANKYOO KANTOKU (HONGKONG) CO.,LTD.",      "1200000249" },
             { "LC00001",        "KANKYOO KANTOKU (HONGKONG) CO.,LTD.",      "1300000096" }
         };
+
+        /// §1.2 Output
+        
+
     }
 }
