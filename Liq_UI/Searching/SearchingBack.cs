@@ -14,7 +14,16 @@ namespace Liq_UI.Searching
         /// <param name="filterData">Filter Data</param>
         internal static void SourceBackToFilter(SourceData sourceData, FilterData filterData)
         {
-            throw new NotImplementedException();
+            foreach (FilterField Filter_Field in filterData.Fields)
+            {
+                //Each mapping weight item
+                foreach (SearchingTableFieldWeight TableFieldWeightItem in Filter_Field.RefTableField.TableFieldWeightList)
+                {
+                    //Add to Source Data
+                    TableFieldWeightItem.TableName = ;
+                    TableFieldWeightItem.FieldName = ;
+                }
+            }
         }
 
         /// <summary>
