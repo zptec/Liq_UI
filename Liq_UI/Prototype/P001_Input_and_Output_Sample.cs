@@ -60,7 +60,15 @@ namespace Liq_UI.Prototype
         };
 
         /// §1.2 Output
-        
-
+        /// [Filter-Source]
+        /// [Customer]LC00001 [VBAK]KUNNR,1,LC00001
+        /// [Customer]LC00001 [VBAK]KUNNR,3,LC00001
+        /// [Customer]LC00001 [KNA1]KUNNR,5,LC00001
+        /// [Filter-Target]
+        /// [Customer]LC00001 [Customer]1,LC00001
+        /// [Customer]LC00001 [Customer]2,LC00001
+        /// [Target-Source]
+        /// [Customer]1
+        /// 
     }
 }
